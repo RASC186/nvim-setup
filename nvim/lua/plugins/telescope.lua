@@ -1,45 +1,76 @@
-local keymap = vim.keymap
+local url = "nvim-telescope/telescope.nvim"
 
-local config = function()
-  local telescope = require('telescope')
-  telescope.setup({
-    defaults = {
-      mappings = {
-        i = {
-          ["<C-j>"] = "move_selection_next",
-          ["<C-k>"] = "move_selection_previous"
-        },
-      },
-    },
-    pickers = {
-      find_files = {
-        theme = "dropdown",
-        previewer = false,
-        hidden = true
-      },
-      live_grep = {
-        theme = "dropdown",
-        previewer = false
-      },
-      find_buffers = {
-        theme = "dropdown",
-        previewer = false
+local main = "telescope"
+
+local cmd = "Telescope"
+
+local priority = 1
+
+local lazy = false
+
+local enabled = true
+
+local dependencies = {
+  "nvim-lua/plenary.nvim"
+}
+
+local opts = {
+
+  -- Default configuration for telescope 
+  defaults = {
+
+    --Key mappings 
+    mappings = {
+      i = {
+        ["<C-h>"] = "which_key",
       }
     }
-  })
+  },
+
+  -- Default configuration for builtin
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+      previewer = false,
+      hidden = true
+    },
+    live_grep = {
+      theme = "dropdown",
+      previewer = false
+    },
+    find_buffers = {
+      theme = "dropdown",
+      previewer = false
+    }
+  },
+
+  -- Your extension configuration
+  extensions = {
+    -- Please take a look at the readme of the extension you want to configure
+  }
+}
+
+local config = function()
+  require(main).setup(opts)
 end
 
+local keys = {
+  vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<CR>"),
+  vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>"),
+  vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>"),
+  vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>"),
+  vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
+}
+
 return {
-  'nvim-telescope/telescope.nvim',
-  tag = '0.1.3',
-  lazy = false,
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  url = url, tag = '0.1.6',
+  main = main,
+  cmd = cmd,
+  priority = priority,
+  lazy = lazy,
+  enabled = enabled,
+  dependencies = dependencies,
+  opts = opts,
   config = config,
-  keys = {
-    keymap.set("n", "<leader>fk", ":Telescope keymaps<CR>"),
-    keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>"),
-    keymap.set("n", "<leader>ff", ":Telescope find_files<CR>"),
-    keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>"),
-    keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
-  }
+  keys = keys,
 }

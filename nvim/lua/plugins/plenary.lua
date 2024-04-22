@@ -1,17 +1,8 @@
-local url = "https://github.com/tpope/vim-fugitive"
+local url = "nvim-lua/plenary.nvim"
 
-local main = "vim-fugitive"
+local main = "plenary"
 
-local cmd = {
-  "Git",
-  "Gedit",
-  "Gread",
-  "Gwrite",
-  "Ggrep",
-  "GMove",
-  "GDelete",
-  "GBrowse"
-}
+-- local cmd = {}
 
 local priority = 1
 
@@ -30,7 +21,7 @@ local enabled = true
 return {
   url = url,
   main = main,
-  cmd = cmd,
+  -- cmd = cmd,
   priority = priority,
   lazy = lazy,
   enabled = enabled,

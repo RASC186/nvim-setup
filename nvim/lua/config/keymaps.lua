@@ -1,29 +1,33 @@
 local keymap = vim.keymap
 
-local opts = { noremap=true, silent=true }
+-- Leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- Directory Navigation
-
-keymap.set("n", "<leader>m",":NvimTreeFocus<CR>", opts)
-keymap.set("n", "<leader>f",":NvimTreeToggle<CR>", opts)
-
--- Navigation
-
-keymap.set("n", "<C-h>", "<C-w>h", opts)
-keymap.set("n", "<C-j>", "<C-w>j", opts)
-keymap.set("n", "<C-k>", "<C-w>k", opts)
-keymap.set("n", "<c-l>", "<c-w>l", opts)
+-- Buffer Management
+keymap.set("n", "<leader>q", ":bdelete<CR>", { silent = true })
+keymap.set("n", "<leader><Right>", ":bnext<CR>", { silent = true })
+keymap.set("n", "<leader><Left>", ":bprevious<CR>", { silent = true })
 
 -- Window Management
+keymap.set("n", "<C-S-Up>", "<C-w>+", { silent = true })
+keymap.set("n", "<C-S-Down>", "<C-w>-", { silent = true })
+keymap.set("n", "<C-S-Right>", "<C-w>>", { silent = true })
+keymap.set("n", "<C-S-Left>", "<C-w><", { silent = true })
+keymap.set("n", "<leader>wh", ":split<CR>", { silent = true })
+keymap.set("n", "<leader>wv", ":vsplit<CR>", { silent = true })
+keymap.set("n", "<leader>wq", ":close<CR>", { silent = true })
 
-keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)
-keymap.set("n", "<leader>sh", ":split<CR>", opts)
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", opts)
+-- Navigation
+keymap.set("n", "<C-Up>", "<C-w>k", { noremap = true })
+keymap.set("n", "<C-Down>", "<C-w>j", { noremap = true })
+keymap.set("n", "<C-Left>", "<C-w>h", { noremap = true })
+keymap.set("n", "<C-Right>", "<c-w>l", { noremap = true })
 
 -- Indenting
-keymap.set("v", "<", "<gv")
-keymap.set("v", ">", ">gv")
+keymap.set("v", "<", "<gv", { noremap = true })
+keymap.set("v", ">", ">gv", { noremap = true })
 
--- Comments
-vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
-vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
+-- Redo
+keymap.set("n", "<C-r>", "<nop>", { silent = true })
+keymap.set("n", "r", ":redo<CR>", { silent = true })

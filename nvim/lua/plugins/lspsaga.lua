@@ -1,17 +1,8 @@
-local url = "https://github.com/tpope/vim-fugitive"
+local url = "nvimdev/lspsaga.nvim"
 
-local main = "vim-fugitive"
+local main = "lspsaga"
 
-local cmd = {
-  "Git",
-  "Gedit",
-  "Gread",
-  "Gwrite",
-  "Ggrep",
-  "GMove",
-  "GDelete",
-  "GBrowse"
-}
+-- local cmd = {}
 
 local priority = 1
 
@@ -19,7 +10,9 @@ local lazy = false
 
 local enabled = true
 
--- local dependencies = {}
+local dependencies = {
+  "nvim-treesitter/nvim-treesitter",
+}
 
 -- local opts = {}
 
@@ -30,11 +23,11 @@ local enabled = true
 return {
   url = url,
   main = main,
-  cmd = cmd,
+  -- cmd = cmd,
   priority = priority,
   lazy = lazy,
   enabled = enabled,
-  -- dependencies = dependencies,
+  dependencies = dependencies,
   -- opts = opts,
   -- config = config,
   -- keys = keys,

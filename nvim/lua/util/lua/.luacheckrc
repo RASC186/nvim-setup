@@ -1,4 +1,6 @@
 ---@diagnostic disable: lowercase-global
+max_line_length = 80
+
 ignore = {
   "111",
   "212/_.*",

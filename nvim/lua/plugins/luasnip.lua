@@ -1,17 +1,8 @@
-local url = "https://github.com/tpope/vim-fugitive"
+local url = "L3MON4D3/LuaSnip"
 
-local main = "vim-fugitive"
+local main = "luasnip"
 
-local cmd = {
-  "Git",
-  "Gedit",
-  "Gread",
-  "Gwrite",
-  "Ggrep",
-  "GMove",
-  "GDelete",
-  "GBrowse"
-}
+-- local cmd = {}
 
 local priority = 1
 
@@ -30,7 +21,9 @@ local enabled = true
 return {
   url = url,
   main = main,
-  cmd = cmd,
+  version = "v2.*",
+	build = "make install_jsregexp",
+  -- cmd = cmd,
   priority = priority,
   lazy = lazy,
   enabled = enabled,
