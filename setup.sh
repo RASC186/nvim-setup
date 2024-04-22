@@ -15,7 +15,7 @@ sudo apt upgrade -y
 
 echo -e "\n\033[32mInstalling Neovim dependencies\033[0m\n"
 
-sudo apt install -y snap git curl unzip luarocks npm golang
+sudo apt install -y snap git curl unzip luarocks npm cargo golang gdb
 
 readarray -t lua_versions < \
   <(apt list lua* | grep -oP "lua[\d\.]+(?=/)" | sort -r)
