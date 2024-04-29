@@ -4,6 +4,12 @@
 
 trap "echo -e \"\nTerminated by user\" ; trap - SIGINT ; exit" SIGINT
 
+##Remove Vim
+
+echo -e "\n\033[32mUninstalling Vim\033[0m\n"
+
+sudo apt remove vim
+
 ##Update and upgrade packages
 
 echo -e "\n\033[32mUpdating and upgrading packages\033[0m\n"
@@ -48,7 +54,7 @@ echo -e "\n\033[32mCreating an alias for Neovim\033[0m\n"
 
 nvim_path=$(which nvim)
 
-echo "alias nvim=\"${nvim_path}\"" > .bashrc
+echo "alias vim=\"${nvim_path}\"" > .bashrc
 
 localFileContent=$(cat ./.bashrc)
 homeFileContent=$(cat ~/.bashrc)
