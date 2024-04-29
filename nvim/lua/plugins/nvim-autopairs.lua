@@ -1,4 +1,4 @@
-local url = "windwp/nvim-autopairs"
+local url = "https://github.com/windwp/nvim-autopairs"
 
 local main = "nvim-autopairs"
 
@@ -44,7 +44,10 @@ local opts = {
   -- switch for basic rule break undo sequence
   break_undo = true,
 
+  -- map the <TS> key
   check_ts = false,
+
+  -- map the <CR> key
   map_cr = true,
 
   -- map the <BS> key

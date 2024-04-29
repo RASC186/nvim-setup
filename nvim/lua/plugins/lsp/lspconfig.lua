@@ -1,8 +1,10 @@
-local url = "neovim/nvim-lspconfig"
+local url = "https://github.com/neovim/nvim-lspconfig"
 
 local main = "lspconfig"
 
-local cmd = {}
+-- local cmd = {}
+
+local event = { "BufReadPre" , "BufNewFile" }
 
 local priority = 1
 
@@ -10,53 +12,42 @@ local lazy = false
 
 local enabled = true
 
-local dependencies = {}
+local dependencies = {
+  "https://github.com/hrsh7th/cmp-nvim-lsp",
+  {"https://github.com/antosha417/nvim-lsp-file-operations", config = true }
+}
 
-local opts = {}
-
-local on_attach = function(client, bufnr)
-
-  local opts = { noremap = true, silent = true, buffer = bufnr }
-
-	-- lua
-  if client.name == "lua_ls" then
-    vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-    vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-    vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-    vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-    vim.keymap.set("n", "<leader>pd", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-    vim.keymap.set("n", "<leader>nd", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-    vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-    vim.keymap.set("n", "<leader>lo", "<cmd>LSoutlineToggle<CR>", opts)
-  end
-
-  -- python
-  if client.name == "pyright" then
-    vim.keymap.set("n", "<leader>oi", "<cmd>PyrightOrganizeImports<CR>", opts)
-  end
-
-end
+-- local opts = {}
 
 local config = function()
 
-  -- require("neoconf").setup({})
-  -- local cmp_nvim_lsp = require("cmp_nvim_lsp")
+  local lspconfig = require("lspconfig")
+  local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-	local lspconfig = require("lspconfig")
+  local capabilities = cmp_nvim_lsp.default_capabilities()
+
+  local on_attach = function(_, bufnr)
+
+    local opts = { noremap = true, silent = false, buffer = bufnr }
+
+    vim.keymap.set("n", "<A-a>", ":lua vim.lsp.buf.code_action()<CR>", opts)
+    vim.keymap.set("n", "<A-k>", ":lua vim.lsp.buf.hover()<CR>", opts)
+    vim.keymap.set("n", "<A-d>", ":lua vim.lsp.buf.definition()<CR>", opts)
+    vim.keymap.set("n", "<A-i>", ":lua vim.lsp.buf.implementation()<CR>", opts)
+    vim.keymap.set("n", "<A-r>", ":lua vim.lsp.buf.rename()<CR>", opts)
+    vim.keymap.set("n", "<A-CR>", vim.diagnostic.open_float, opts)
+
+  end
 
   local signs = { Error = "󰅙 ", Warn = " ", Hint = "󰠠 ", Info = "󰋗 " }
-	for type, icon in pairs(signs) do
+
+  for type, icon in pairs(signs) do
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
-	-- lua
-	lspconfig.lua_ls.setup({
-		-- capabilities = capabilities,
+	lspconfig["lua_ls"].setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 		settings = {
       -- custom setting for lua
@@ -76,20 +67,9 @@ local config = function()
     }
   })
 
-  lspconfig.pyright.setup({
-    -- capabilities = capabilities,
+  lspconfig["pyright"].setup({
+    capabilities = capabilities,
     on_attach = on_attach,
-    settings = {
-      pyright = {
-        disableOrganizeImports = false,
-        analysis = {
-          useLibraryCodeForTypes = true,
-          autoSearchPaths = true,
-          diagnosticMode = "workspace",
-          autoImportCompletions = true,
-        },
-      }
-    }
   })
 
 	-- local luacheck = require("efmls-configs.linters.luacheck")
@@ -139,12 +119,13 @@ local keys = {}
 return {
   url = url,
   main = main,
-  cmd = cmd,
+  -- cmd = cmd,
+  event = event,
   priority = priority,
   lazy = lazy,
   enabled = enabled,
   dependencies = dependencies,
-  opts = opts,
+  -- opts = opts,
   config = config,
   keys = keys,
 }

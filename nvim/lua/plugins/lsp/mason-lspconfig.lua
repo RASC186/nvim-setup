@@ -1,4 +1,4 @@
-local url = "williamboman/mason-lspconfig.nvim"
+local url = "https://github.com/williamboman/mason-lspconfig.nvim"
 
 local main = "mason-lspconfig"
 

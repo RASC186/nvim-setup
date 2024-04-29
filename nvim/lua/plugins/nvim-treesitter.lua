@@ -1,4 +1,4 @@
-local url = "nvim-treesitter/nvim-treesitter"
+local url = "https://github.com/nvim-treesitter/nvim-treesitter"
 
 local main = "nvim-treesitter.configs"
 
@@ -32,17 +32,30 @@ local opts = {
 
   -- A list of parser names, or "all"
   ensure_installed = {
-    "c",
-    "cpp",
-    "python",
     "bash",
-    "lua",
+    "c",
+    "cmake",
+    "cpp",
+    "css",
+    "dockerfile",
+    "html",
+    "java",
+    "javascript",
     "jsonc",
+    "latex",
+    "lua",
+    "make",
+    "markdown",
+    "python",
+    "query",
+    "rust",
+    "sql",
+    "verilog",
     "vim",
     "vimdoc",
-    "markdown",
-    -- "latex",
-    "query"
+    "wgsl",
+    "yaml",
+    "yang"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

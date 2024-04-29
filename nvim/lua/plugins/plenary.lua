@@ -1,4 +1,4 @@
-local url = "nvim-lua/plenary.nvim"
+local url = "https://github.com/nvim-lua/plenary.nvim"
 
 local main = "plenary"
 

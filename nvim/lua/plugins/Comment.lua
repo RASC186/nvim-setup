@@ -1,4 +1,4 @@
-local url = "numToStr/Comment.nvim"
+local url = "https://github.com/numToStr/Comment.nvim"
 
 local main = "Comment"
 

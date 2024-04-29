@@ -1,4 +1,4 @@
-local url = "nvimdev/lspsaga.nvim"
+local url = "https://github.com/nvimdev/lspsaga.nvim"
 
 local main = "lspsaga"
 

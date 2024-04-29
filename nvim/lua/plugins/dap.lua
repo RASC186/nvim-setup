@@ -1,4 +1,4 @@
-local url = "mfussenegger/nvim-dap"
+local url = "https://github.com/mfussenegger/nvim-dap"
 
 local main = "dap"
 

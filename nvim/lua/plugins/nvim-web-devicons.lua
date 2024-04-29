@@ -1,4 +1,4 @@
-local url = "nvim-tree/nvim-web-devicons"
+local url = "https://github.com/nvim-tree/nvim-web-devicons"
 
 local main = "nvim-web-devicons"
 

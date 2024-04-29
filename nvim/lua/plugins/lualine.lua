@@ -1,4 +1,4 @@
-local url = "nvim-lualine/lualine.nvim"
+local url = "https://github.com/nvim-lualine/lualine.nvim"
 
 local main = "lualine"
 

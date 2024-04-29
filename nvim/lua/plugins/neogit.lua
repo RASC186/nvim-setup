@@ -1,4 +1,4 @@
-local url = "NeogitOrg/neogit"
+local url = "https://github.com/NeogitOrg/neogit"
 
 local main = "neogit"
 

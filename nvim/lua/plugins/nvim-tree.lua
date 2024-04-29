@@ -1,4 +1,4 @@
-local url = "nvim-tree/nvim-tree.lua.git"
+local url = "https://github.com/nvim-tree/nvim-tree.lua.git"
 
 local main = "nvim-tree"
 

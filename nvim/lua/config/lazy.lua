@@ -14,14 +14,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local opts = {
-	defaults = {
+
+  defaults = {
 		lazy = true,
 	},
+
   lockfile = vim.fn.stdpath("config") .. "/lua/plugins/lazy-lock.json",
-	install = {
+
+  install = {
 		colorscheme = { "tokyonight" },
 	},
-	rtp = {
+
+  rtp = {
 		disabled_plugins = {
 			"gzip",
 			"matchit",
@@ -34,9 +38,17 @@ local opts = {
 			"zipPlugin",
 		},
 	},
-	change_detection = {
+
+  change_detection = {
 		notify = true,
 	},
 }
 
-require("lazy").setup("plugins", opts)
+require("lazy").setup(
+  {
+    { import = "plugins" },
+    { import = "plugins.lsp" },
+  },
+  opts
+)
+

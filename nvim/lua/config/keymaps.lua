@@ -29,5 +29,5 @@ keymap.set("v", "<", "<gv", { noremap = true })
 keymap.set("v", ">", ">gv", { noremap = true })
 
 -- Redo
-keymap.set("n", "<C-r>", "<nop>", { silent = true })
-keymap.set("n", "r", ":redo<CR>", { silent = true })
+keymap.set("n", "<C-r>", "<nop>")
+keymap.set("n", "r", ":redo<CR>")
