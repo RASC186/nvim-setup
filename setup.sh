@@ -71,6 +71,14 @@ echo -e "\n\033[32mCreating a symbolic link for Neovim\033[0m\n"
 
 sudo ln -s "${nvim_path}" "/usr/bin/nvim"
 
+##Install tree-sitter-cli
+
+echo -e "\n\033[32mInstalling tree-sitter-cli\033[0m\n"
+
+sudo cargo install tree-sitter-cli
+
+sudo mv /root/.cargo/bin/tree-sitter /usr/bin/
+
 ##Install a Nerd Font
 
 echo -e "\n\033[32mInstalling a nerd font\033[0m\n"
