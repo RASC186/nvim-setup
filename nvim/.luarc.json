@@ -1,0 +1,6 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "comment_main"
+    ]
+}
