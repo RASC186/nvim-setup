@@ -109,6 +109,12 @@ vim_pencil_opts = nil
 
 --------------------------------------------------------------------------------
 
+-- luasnip
+
+luasnip_opts = nil
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_opts = function(plugin, opts)
@@ -116,10 +122,8 @@ nvim_cmp_opts = function(plugin, opts)
 	local luasnip = require("luasnip")
 	local lspkind = require("lspkind")
 
-	require("luasnip/loaders/from_vscode").lazy_load()
-
 	opts.completion = {
-		completeopt = "menu,menuone",
+		completeopt = "menu,menuone,preview,noselect",
 	}
 
 	opts.snippet = {
@@ -129,21 +133,7 @@ nvim_cmp_opts = function(plugin, opts)
 	}
 
 	opts.formatting = {
-
-		fields = { "kind", "abbr", "menu" },
-
-		format = function(entry, vim_item)
-			vim_item.kind = string.format("%s", lspkind.symbol_map[vim_item.kind])
-
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				luasnip = "[snippet]",
-				buffer = "[buffer]",
-				path = "[path]",
-			})[entry.source_name]
-
-			return vim_item
-		end,
+		format = lspkind.cmp_format({ maxwidth = 50, ellipsis_char = "..." }),
 	}
 
 	opts.window = {
@@ -160,9 +150,27 @@ end
 
 --------------------------------------------------------------------------------
 
+-- dapui
+
+dapui_opts = nil
+
+--------------------------------------------------------------------------------
+
 -- dap
 
 dap_opts = nil
+
+--------------------------------------------------------------------------------
+
+-- lldebugger
+
+lldebugger_opts = nil
+
+--------------------------------------------------------------------------------
+
+-- dap-python
+
+dap_python_opts = nil
 
 --------------------------------------------------------------------------------
 
@@ -180,7 +188,7 @@ conform_opts = function(plugin, opts)
 		json = { "fixjson" },
 		latex = { "latexindent" },
 		lua = { "stylua" },
-		python = { "black", "isort", "autoflake" },
+		python = { "black" },
 		sql = { "sqlfmt" },
 		systemverilog = { "verible" },
 		yaml = { "yamlfmt" },
@@ -272,6 +280,19 @@ mason_lspconfig_opts = function(plugin, opts)
 		"verible",
 	}
 	opts.automatic_installation = true
+	opts.handlers = nil
+end
+
+--------------------------------------------------------------------------------
+
+-- mason-nvim-dap
+
+mason_nvim_dap_opts = function(plugin, opts)
+	opts.ensure_installed = {
+		"bash-debug-adapter",
+		"debugpy",
+	}
+	opts.automatic_installation = false
 	opts.handlers = nil
 end
 
@@ -539,7 +560,7 @@ end
 
 neoconf_opts = function(plugin, opts)
 	opts._settings = ".neoconf.json"
-	opts.global_settings = "/util/neoconf/neoconf.json"
+	opts.global_settings = "/lua/lsp/config/neoconf.json"
 	opts.live_reload = true
 	opts.filetype_jsonc = true
 	opts.import = {

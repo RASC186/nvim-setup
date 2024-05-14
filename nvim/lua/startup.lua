@@ -17,6 +17,8 @@ comment_cmd = nil
 
 comment_events = nil
 
+comment_priority = 1
+
 --------------------------------------------------------------------------------
 
 -- Autopairs
@@ -33,7 +35,9 @@ nvim_autopairs_lazy = false
 
 nvim_autopairs_cmd = nil
 
-nvim_autopairs_events = { "InsertEnter" }
+nvim_autopairs_events = nil
+
+nvim_autopairs_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -49,9 +53,13 @@ spectre_dependencies = nil
 
 spectre_lazy = true
 
-spectre_cmd = { "Spectre" }
+spectre_cmd = {
+	"Spectre",
+}
 
 spectre_events = nil
+
+spectre_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -81,6 +89,30 @@ vim_pencil_cmd = {
 
 vim_pencil_events = nil
 
+vim_pencil_priority = 1
+
+--------------------------------------------------------------------------------
+
+-- luasnip
+
+luasnip_main = "luasnip"
+
+luasnip_tag = "v2.3.0"
+
+luasnip_url = "https://github.com/L3MON4D3/LuaSnip"
+
+luasnip_dependencies = nil
+
+luasnip_lazy = true
+
+luasnip_cmd = nil
+
+luasnip_events = {
+	"InsertEnter",
+}
+
+luasnip_priority = 2
+
 --------------------------------------------------------------------------------
 
 -- nvim-cmp
@@ -105,7 +137,38 @@ nvim_cmp_lazy = false
 
 nvim_cmp_cmd = nil
 
-nvim_cmp_events = { "InsertEnter" }
+nvim_cmp_events = {
+	"InsertEnter",
+}
+
+nvim_cmp_priority = 1
+
+--------------------------------------------------------------------------------
+
+-- dapui
+
+dapui_main = "dapui"
+
+dapui_tag = nil
+
+dapui_url = "https://github.com/rcarriga/nvim-dap-ui"
+
+dapui_dependencies = {
+	"https://github.com/mfussenegger/nvim-dap",
+	"https://github.com/nvim-neotest/nvim-nio",
+}
+
+dapui_lazy = false
+
+dapui_cmd = {
+	"DapUiToggle",
+}
+
+dapui_events = {
+	"VeryLazy",
+}
+
+dapui_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -119,11 +182,58 @@ dap_url = "https://github.com/mfussenegger/nvim-dap"
 
 dap_dependencies = nil
 
-dap_lazy = true
+dap_lazy = false
 
 dap_cmd = nil
 
 dap_events = nil
+
+dap_priority = 1
+
+--------------------------------------------------------------------------------
+
+-- lldebugger
+
+lldebugger_main = "lldebugger"
+
+lldebugger_tag = nil
+
+lldebugger_url = "https://github.com/tomblind/local-lua-debugger-vscode"
+
+lldebugger_dependencies = {
+	"https://github.com/rcarriga/nvim-dap-ui",
+}
+
+lldebugger_lazy = false
+
+lldebugger_cmd = nil
+
+lldebugger_events = nil
+
+lldebugger_priority = 1
+
+--------------------------------------------------------------------------------
+
+-- dap-python
+
+dap_python_main = "dap-python"
+
+dap_python_tag = nil
+
+dap_python_url = "https://github.com/mfussenegger/nvim-dap-python"
+
+dap_python_dependencies = {
+	"https://github.com/rcarriga/nvim-dap-ui",
+	"https://github.com/mfussenegger/nvim-dap",
+}
+
+dap_python_lazy = false
+
+dap_python_cmd = nil
+
+dap_python_events = nil
+
+dap_python_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -141,7 +251,12 @@ conform_lazy = false
 
 conform_cmd = nil
 
-conform_events = { "BufReadPre", "BufNewFile" }
+conform_events = {
+	"BufReadPre",
+	"BufNewFile",
+}
+
+conform_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -157,9 +272,13 @@ gitsigns_dependencies = nil
 
 gitsigns_lazy = false
 
-gitsigns_cmd = { "Gitsigns" }
+gitsigns_cmd = {
+	"Gitsigns",
+}
 
 gitsigns_events = nil
+
+gitsigns_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -173,11 +292,16 @@ nvim_lint_url = "https://github.com/mfussenegger/nvim-lint"
 
 nvim_lint_dependencies = nil
 
-nvim_lint_lazy = false
+nvim_lint_lazy = true
 
 nvim_lint_cmd = nil
 
-nvim_lint_events = { "BufReadPre", "BufNewFile" }
+nvim_lint_events = {
+	"BufReadPre",
+	"BufNewFile",
+}
+
+nvim_lint_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -196,9 +320,19 @@ lspconfig_dependencies = {
 
 lspconfig_lazy = false
 
-lspconfig_cmd = nil
+lspconfig_cmd = {
+	"LspInfo",
+	"LspStart",
+	"LspStop",
+	"LspRestart",
+}
 
-lspconfig_events = { "BufReadPre", "BufNewFile" }
+lspconfig_events = {
+	"BufReadPre",
+	"BufNewFile",
+}
+
+lspconfig_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -220,6 +354,8 @@ lspsaga_cmd = nil
 
 lspsaga_events = nil
 
+lspsaga_priority = 1
+
 --------------------------------------------------------------------------------
 
 -- mason-lspconfig
@@ -230,15 +366,41 @@ mason_lspconfig_tag = nil
 
 mason_lspconfig_url = "https://github.com/williamboman/mason-lspconfig.nvim"
 
-mason_lspconfig_dependencies = {
-	"williamboman/mason.nvim",
-}
+mason_lspconfig_dependencies = nil
 
 mason_lspconfig_lazy = false
 
 mason_lspconfig_cmd = nil
 
 mason_lspconfig_events = nil
+
+mason_lspconfig_priority = 2
+
+--------------------------------------------------------------------------------
+
+-- mason-nvim-dap
+
+mason_nvim_dap_main = "mason-nvim-dap"
+
+mason_nvim_dap_tag = nil
+
+mason_nvim_dap_url = "https://github.com/jay-babu/mason-nvim-dap.nvim"
+
+mason_nvim_dap_dependencies = {
+	"williamboman/mason.nvim",
+	"mfussenegger/nvim-dap",
+}
+
+mason_nvim_dap_lazy = true
+
+mason_nvim_dap_cmd = {
+	"DapInstall",
+	"DapUninstall",
+}
+
+mason_nvim_dap_events = nil
+
+mason_nvim_dap_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -250,13 +412,19 @@ mason_tag = nil
 
 mason_url = "https://github.com/williamboman/mason.nvim"
 
-mason_dependencies = nil
+mason_dependencies = {
+	"https://github.com/williamboman/mason-lspconfig.nvim",
+}
 
 mason_lazy = true
 
-mason_cmd = { "Mason" }
+mason_cmd = {
+	"Mason",
+}
 
 mason_events = nil
+
+mason_priority = 2
 
 --------------------------------------------------------------------------------
 
@@ -292,6 +460,8 @@ nvim_treesitter_cmd = {
 
 nvim_treesitter_events = nil
 
+nvim_treesitter_priority = 2
+
 --------------------------------------------------------------------------------
 
 -- illuminate
@@ -317,6 +487,8 @@ illuminate_cmd = {
 
 illuminate_events = nil
 
+illuminate_priority = 1
+
 --------------------------------------------------------------------------------
 
 -- telescope
@@ -333,9 +505,13 @@ telescope_dependencies = {
 
 telescope_lazy = false
 
-telescope_cmd = { "Telescope" }
+telescope_cmd = {
+	"Telescope",
+}
 
 telescope_events = nil
+
+telescope_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -351,9 +527,13 @@ goyo_dependencies = nil
 
 goyo_lazy = false
 
-goyo_cmd = { "Goyo" }
+goyo_cmd = {
+	"Goyo",
+}
 
 goyo_events = nil
+
+goyo_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -373,6 +553,8 @@ lspkind_cmd = nil
 
 lspkind_events = nil
 
+lspkind_priority = 1
+
 --------------------------------------------------------------------------------
 
 -- lualine
@@ -390,6 +572,8 @@ lualine_lazy = false
 lualine_cmd = nil
 
 lualine_events = nil
+
+lualine_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -409,6 +593,8 @@ nvim_tree_cmd = nil
 
 nvim_tree_events = nil
 
+nvim_tree_priority = 1
+
 --------------------------------------------------------------------------------
 
 -- nvim-web-devicons
@@ -426,6 +612,8 @@ nvim_web_devicons_lazy = false
 nvim_web_devicons_cmd = nil
 
 nvim_web_devicons_events = nil
+
+nvim_web_devicons_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -445,6 +633,8 @@ tokyonight_cmd = nil
 
 tokyonight_events = nil
 
+tokyonight_priority = 2
+
 --------------------------------------------------------------------------------
 
 -- neoconf
@@ -459,9 +649,13 @@ neoconf_dependencies = nil
 
 neoconf_lazy = false
 
-neoconf_cmd = { "Neoconf" }
+neoconf_cmd = {
+	"Neoconf",
+}
 
 neoconf_events = nil
+
+neoconf_priority = 3
 
 --------------------------------------------------------------------------------
 
@@ -481,6 +675,8 @@ neodev_cmd = nil
 
 neodev_events = nil
 
+neodev_priority = 1
+
 --------------------------------------------------------------------------------
 
 -- plenary
@@ -498,5 +694,7 @@ plenary_lazy = false
 plenary_cmd = nil
 
 plenary_events = nil
+
+plenary_priority = 1
 
 --------------------------------------------------------------------------------

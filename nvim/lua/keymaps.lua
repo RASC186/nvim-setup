@@ -73,7 +73,8 @@ comment_keymaps = function(plugin, opts)
 		extra = false,
 	}
 
-	vim.keymap.set({ "n", "v" }, "<C-_>", "gcc<esc>", {})
+	vim.api.nvim_set_keymap("n", "<C-_>", "gcc<ESC>", { silent = true })
+	vim.api.nvim_set_keymap("v", "<C-_>", "gcc<ESC>", { silent = true })
 end
 
 --------------------------------------------------------------------------------
@@ -89,7 +90,7 @@ nvim_autopairs_keymaps = function(_, _) end
 spectre_keymaps = function(plugin, opts)
 	-- Internal key mapping
 
-	plugin.opts.mapping = {
+	opts.mapping = {
 
 		["tab"] = {
 			map = "<Tab>",
@@ -222,31 +223,64 @@ vim_pencil_keymaps = function(_, _) end
 
 --------------------------------------------------------------------------------
 
+-- luasnip
+
+luasnip_keymaps = function(plugin, _)
+	local luasnip = require(plugin.main)
+	vim.keymap.set("i", "<C-l>", function()
+		if luasnip.choice_active() then
+			luasnip.change_choice(1)
+		end
+	end, { silent = true })
+end
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_keymaps = function(plugin, opts)
 	local cmp = require(plugin.main)
 	opts.mapping = cmp.mapping.preset.insert({
-
 		["<Down>"] = cmp.mapping.select_next_item(),
-
 		["<Up>"] = cmp.mapping.select_prev_item(),
-
 		["<S-Up>"] = cmp.mapping.scroll_docs(-4),
-
 		["<S-Down>"] = cmp.mapping.scroll_docs(4),
-
 		["<Esc>"] = cmp.mapping.abort(),
-
 		["<Tab>"] = cmp.mapping.confirm({ select = true }),
 	})
 end
 
 --------------------------------------------------------------------------------
 
+-- dapui
+
+dapui_keymaps = function(plugin, opts)
+	local dapui = require(plugin.main)
+	vim.api.nvim_set_keymap("n", "<leader>dt", ":lua require('dapui').toggle()<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset=true})<CR>", { noremap = true })
+end
+
+--------------------------------------------------------------------------------
+
 -- dap
 
-dap_keymaps = function(_, _) end
+dap_keymaps = function(plugin, opts)
+	local dap = require(plugin.main)
+	vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, {})
+	vim.keymap.set("n", "<leader>dc", dap.continue, {})
+end
+
+--------------------------------------------------------------------------------
+
+-- lldebugger
+
+lldebugger_keymaps = function(_, _) end
+
+--------------------------------------------------------------------------------
+
+-- dap-python
+
+dap_python_keymaps = function(_, _) end
 
 --------------------------------------------------------------------------------
 
@@ -254,8 +288,7 @@ dap_keymaps = function(_, _) end
 
 conform_keymaps = function(plugin, opts)
 	local conform = require(plugin.main)
-
-	vim.keymap.set("n", "=", function()
+	vim.keymap.set({ "n", "v" }, "=", function()
 		conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
 	end, { desc = "Format file" })
 end
@@ -278,8 +311,9 @@ end
 -- nvim-lint
 
 nvim_lint_keymaps = function(plugin, opts)
+	local lint = require(plugin.main)
 	vim.keymap.set("n", "<leader>l", function()
-		plugin.try_lint()
+		lint.try_lint()
 	end, { desc = "Trigger linting for current file" })
 end
 
@@ -300,6 +334,11 @@ lspsaga_keymaps = function(_, _) end
 -- mason-lspconfig
 
 mason_lspconfig_keymaps = function(_, _) end
+--------------------------------------------------------------------------------
+
+-- mason-nvim-dap
+
+mason_nvim_dap_keymaps = function(_, _) end
 
 --------------------------------------------------------------------------------
 
@@ -377,8 +416,8 @@ end
 -- illuminate
 
 illuminate_keymaps = function(plugin, opts)
-	vim.keymap.set("n", "<A-Left>", "<A-p>", {})
-	vim.keymap.set("n", "<A-Right>", "<A-n>", {})
+	vim.api.nvim_set_keymap("n", "<A-Left>", "<A-p>", { silent = true })
+	vim.api.nvim_set_keymap("n", "<A-Right>", "<A-n>", { silent = true })
 end
 
 --------------------------------------------------------------------------------

@@ -12,6 +12,7 @@ local comment = {
 	lazy = comment_lazy,
 	cmd = comment_cmd,
 	events = comment_events,
+	priority = comment_priority,
 	opts = comment_opts,
 	config = comment_config,
 }
@@ -26,6 +27,7 @@ local nvim_autopairs = {
 	lazy = nvim_autopairs_lazy,
 	cmd = nvim_autopairs_cmd,
 	events = nvim_autopairs_events,
+	priority = nvim_autopairs_priority,
 	opts = nvim_autopairs_opts,
 	config = nvim_autopairs_config,
 }
@@ -40,6 +42,7 @@ local spectre = {
 	lazy = spectre_lazy,
 	cmd = spectre_cmd,
 	events = spectre_events,
+	priority = spectre_priority,
 	opts = spectre_opts,
 	config = spectre_config,
 }
@@ -54,8 +57,24 @@ local vim_pencil = {
 	lazy = vim_pencil_lazy,
 	cmd = vim_pencil_cmd,
 	events = vim_pencil_events,
+	priority = vim_pencil_priority,
 	opts = vim_pencil_opts,
 	config = vim_pencil_config,
+}
+
+--------------------------------------------------------------------------------
+
+local luasnip = {
+	main = luasnip_main,
+	tag = luasnip_tag,
+	url = luasnip_url,
+	dependencies = luasnip_dependencies,
+	lazy = luasnip_lazy,
+	cmd = luasnip_cmd,
+	events = luasnip_events,
+	priority = luasnip_priority,
+	opts = luasnip_opts,
+	config = luasnip_config,
 }
 
 --------------------------------------------------------------------------------
@@ -68,8 +87,24 @@ local nvim_cmp = {
 	lazy = nvim_cmp_lazy,
 	cmd = nvim_cmp_cmd,
 	events = nvim_cmp_events,
+	priority = nvim_cmp_priority,
 	opts = nvim_cmp_opts,
 	config = nvim_cmp_config,
+}
+
+--------------------------------------------------------------------------------
+
+local dapui = {
+	main = dapui_main,
+	tag = dapui_tag,
+	url = dapui_url,
+	dependencies = dapui_dependencies,
+	lazy = dapui_lazy,
+	cmd = dapui_cmd,
+	events = dapui_events,
+	priority = dapui_priority,
+	opts = dapui_opts,
+	config = dapui_config,
 }
 
 --------------------------------------------------------------------------------
@@ -82,8 +117,39 @@ local dap = {
 	lazy = dap_lazy,
 	cmd = dap_cmd,
 	events = dap_events,
+	priority = dap_priority,
 	opts = dap_opts,
 	config = dap_config,
+}
+
+--------------------------------------------------------------------------------
+
+local lldebugger = {
+	main = lldebugger_main,
+	tag = lldebugger_tag,
+	url = lldebugger_url,
+	dependencies = lldebugger_dependencies,
+	lazy = lldebugger_lazy,
+	cmd = lldebugger_cmd,
+	events = lldebugger_events,
+	priority = lldebugger_priority,
+	opts = lldebugger_opts,
+	config = lldebugger_config,
+}
+
+--------------------------------------------------------------------------------
+
+local dap_python = {
+	main = dap_python_main,
+	tag = dap_python_tag,
+	url = dap_python_url,
+	dependencies = dap_python_dependencies,
+	lazy = dap_python_lazy,
+	cmd = dap_python_cmd,
+	events = dap_python_events,
+	priority = dap_python_priority,
+	opts = dap_python_opts,
+	config = dap_python_config,
 }
 
 --------------------------------------------------------------------------------
@@ -96,10 +162,10 @@ local conform = {
 	lazy = conform_lazy,
 	cmd = conform_cmd,
 	events = conform_events,
+	priority = conform_priority,
 	opts = conform_opts,
 	config = conform_config,
 }
-
 --------------------------------------------------------------------------------
 
 local gitsigns = {
@@ -110,6 +176,7 @@ local gitsigns = {
 	lazy = gitsigns_lazy,
 	cmd = gitsigns_cmd,
 	events = gitsigns_events,
+	priority = gitsigns_priority,
 	opts = gitsigns_opts,
 	config = gitsigns_config,
 }
@@ -124,6 +191,7 @@ local nvim_lint = {
 	lazy = nvim_lint_lazy,
 	cmd = nvim_lint_cmd,
 	events = nvim_lint_events,
+	priority = nvim_lint_priority,
 	opts = nvim_lint_opts,
 	config = nvim_lint_config,
 }
@@ -138,6 +206,7 @@ local lspconfig = {
 	lazy = lspconfig_lazy,
 	cmd = lspconfig_cmd,
 	events = lspconfig_events,
+	priority = lspconfig_priority,
 	opts = lspconfig_opts,
 	config = lspconfig_config,
 }
@@ -152,6 +221,7 @@ local lspsaga = {
 	lazy = lspsaga_lazy,
 	cmd = lspsaga_cmd,
 	events = lspsaga_events,
+	priority = lspsaga_priority,
 	opts = lspsaga_opts,
 	config = lspsaga_config,
 }
@@ -166,8 +236,24 @@ local mason_lspconfig = {
 	lazy = mason_lspconfig_lazy,
 	cmd = mason_lspconfig_cmd,
 	events = mason_lspconfig_events,
+	priority = mason_lspconfig_priority,
 	opts = mason_lspconfig_opts,
 	config = mason_lspconfig_config,
+}
+
+--------------------------------------------------------------------------------
+
+local mason_nvim_dap = {
+	main = mason_nvim_dap_main,
+	tag = mason_nvim_dap_tag,
+	url = mason_nvim_dap_url,
+	dependencies = mason_nvim_dap_dependencies,
+	lazy = mason_nvim_dap_lazy,
+	cmd = mason_nvim_dap_cmd,
+	events = mason_nvim_dap_events,
+	priority = mason_nvim_dap_priority,
+	opts = mason_nvim_dap_opts,
+	config = mason_nvim_dap_config,
 }
 
 --------------------------------------------------------------------------------
@@ -180,6 +266,7 @@ local mason = {
 	lazy = mason_lazy,
 	cmd = mason_cmd,
 	events = mason_events,
+	priority = mason_priority,
 	opts = mason_opts,
 	config = mason_config,
 }
@@ -194,6 +281,7 @@ local nvim_treesitter = {
 	lazy = nvim_treesitter_lazy,
 	cmd = nvim_treesitter_cmd,
 	events = nvim_treesitter_events,
+	priority = nvim_treesitter_priority,
 	opts = nvim_treesitter_opts,
 	config = nvim_treesitter_config,
 }
@@ -208,6 +296,7 @@ local illuminate = {
 	lazy = illuminate_lazy,
 	cmd = illuminate_cmd,
 	events = illuminate_events,
+	priority = illuminate_priority,
 	opts = illuminate_opts,
 	config = illuminate_config,
 }
@@ -222,6 +311,7 @@ local telescope = {
 	lazy = telescope_lazy,
 	cmd = telescope_cmd,
 	events = telescope_events,
+	priority = telescope_priority,
 	opts = telescope_opts,
 	config = telescope_config,
 }
@@ -236,6 +326,7 @@ local goyo = {
 	lazy = goyo_lazy,
 	cmd = goyo_cmd,
 	events = goyo_events,
+	priority = goyo_priority,
 	opts = goyo_opts,
 	config = goyo_config,
 }
@@ -250,6 +341,7 @@ local lspkind = {
 	lazy = lspkind_lazy,
 	cmd = lspkind_cmd,
 	events = lspkind_events,
+	priority = lspkind_priority,
 	opts = lspkind_opts,
 	config = lspkind_config,
 }
@@ -264,6 +356,7 @@ local lualine = {
 	lazy = lualine_lazy,
 	cmd = lualine_cmd,
 	events = lualine_events,
+	priority = lualine_priority,
 	opts = lualine_opts,
 	config = lualine_config,
 }
@@ -278,6 +371,7 @@ local nvim_tree = {
 	lazy = nvim_tree_lazy,
 	cmd = nvim_tree_cmd,
 	events = nvim_tree_events,
+	priority = nvim_tree_priority,
 	opts = nvim_tree_opts,
 	config = nvim_tree_config,
 }
@@ -292,6 +386,7 @@ local nvim_web_devicons = {
 	lazy = nvim_web_devicons_lazy,
 	cmd = nvim_web_devicons_cmd,
 	events = nvim_web_devicons_events,
+	priority = nvim_web_devicons_priority,
 	opts = nvim_web_devicons_opts,
 	config = nvim_web_devicons_config,
 }
@@ -306,6 +401,7 @@ local tokyonight = {
 	lazy = tokyonight_lazy,
 	cmd = tokyonight_cmd,
 	events = tokyonight_events,
+	priority = tokyonight_priority,
 	opts = tokyonight_opts,
 	config = tokyonight_config,
 }
@@ -320,6 +416,7 @@ local neoconf = {
 	lazy = neoconf_lazy,
 	cmd = neoconf_cmd,
 	events = neoconf_events,
+	priority = neoconf_priority,
 	opts = neoconf_opts,
 	config = neoconf_config,
 }
@@ -334,6 +431,7 @@ local neodev = {
 	lazy = neodev_lazy,
 	cmd = neodev_cmd,
 	events = neodev_events,
+	priority = neodev_priority,
 	opts = neodev_opts,
 	config = neodev_config,
 }
@@ -348,6 +446,7 @@ local plenary = {
 	lazy = plenary_lazy,
 	cmd = plenary_cmd,
 	events = plenary_events,
+	priority = plenary_priority,
 	opts = plenary_opts,
 	config = plenary_config,
 }
@@ -401,19 +500,24 @@ local opts = {
 }
 
 require("lazy").setup({
-	-- neoconf,
+	neoconf,
 	comment,
 	nvim_autopairs,
 	spectre,
 	vim_pencil,
+	luasnip,
 	nvim_cmp,
+	dapui,
 	dap,
+	lldebugger,
+	dap_python,
 	conform,
 	gitsigns,
 	nvim_lint,
 	lspconfig,
 	lspsaga,
 	mason_lspconfig,
+	mason_nvim_dap,
 	mason,
 	nvim_treesitter,
 	illuminate,

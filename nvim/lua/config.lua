@@ -1,7 +1,8 @@
----@diagnostic disable: lowercase-global
+---@diagnostic disable: lowercase-global, unused-local
 --------------------------------------------------------------------------------
 
 require("keymaps")
+require("autocmds")
 
 --------------------------------------------------------------------------------
 
@@ -40,6 +41,29 @@ end
 
 --------------------------------------------------------------------------------
 
+-- luasnip
+
+luasnip_config = function(plugin, opts)
+	require("luasnip/loaders/from_vscode").lazy_load()
+	luasnip_keymaps(plugin, opts)
+	local luasnip = require(plugin.main)
+	local types = require(plugin.main .. ".util.types")
+	luasnip.config.set_config = {
+		history = true,
+		updateevents = "TextChanged,TextChangedI",
+		enable_autosnippets = true,
+		ext_opts = {
+			[types.choiceNode] = {
+				active = {
+					virt_text = { { "<-", "Error" } },
+				},
+			},
+		},
+	}
+end
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_config = function(plugin, opts)
@@ -49,16 +73,116 @@ end
 
 --------------------------------------------------------------------------------
 
+-- dapui
+
+dapui_config = function(plugin, opts)
+	dapui_keymaps(plugin, opts)
+	local dapui = require(plugin.main)
+	local dap = require("dap")
+	dapui.setup()
+
+	dap.listeners.after.event_initialized["dapui_config"] = function()
+		require("dapui").open()
+	end
+
+	dap.listeners.before.event_terminated["dapui_config"] = function()
+		-- Commented to prevent DAP UI from closing when unit tests finish
+		-- require('dapui').close()
+	end
+
+	dap.listeners.before.event_exited["dapui_config"] = function()
+		-- Commented to prevent DAP UI from closing when unit tests finish
+		-- require('dapui').close()
+	end
+end
+
+--------------------------------------------------------------------------------
+
 -- dap
 
 dap_config = function(plugin, opts)
 	dap_keymaps(plugin, opts)
-	plugin.adapters.gdb = {
+
+	local dap = require(plugin.main)
+
+	dap.adapters.bashdb = {
+		type = "executable",
+		command = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/bash-debug-adapter",
+		name = "bashdb",
+	}
+
+	dap.adapters.gdb = {
 		type = "executable",
 		command = "gdb",
 		args = { "-i", "dap" },
 	}
-	plugin.configurations.c = {
+
+	dap.adapters["local-lua"] = {
+		type = "executable",
+		command = "node",
+		args = {
+			"/absolute/path/to/local-lua-debugger-vscode/extension/debugAdapter.js",
+		},
+		enrich_config = function(config, on_config)
+			if not config["extensionPath"] then
+				local c = vim.deepcopy(config)
+				c.extensionPath = "/absolute/path/to/local-lua-debugger-vscode/"
+				on_config(c)
+			else
+				on_config(config)
+			end
+		end,
+	}
+
+	dap.adapters.python = function(cb, config)
+		if config.request == "attach" then
+			---@diagnostic disable-next-line: undefined-field
+			local port = (config.connect or config).port
+			---@diagnostic disable-next-line: undefined-field
+			local host = (config.connect or config).host or "127.0.0.1"
+			cb({
+				type = "server",
+				port = assert(port, "`connect.port` is required for a python `attach` configuration"),
+				host = host,
+				options = {
+					source_filetype = "python",
+				},
+			})
+		else
+			cb({
+				type = "executable",
+				command = "path/to/virtualenvs/debugpy/bin/python",
+				args = { "-m", "debugpy.adapter" },
+				options = {
+					source_filetype = "python",
+				},
+			})
+		end
+	end
+
+	dap.configurations.sh = {
+		{
+			type = "bashdb",
+			request = "launch",
+			name = "Launch file",
+			showDebugOutput = true,
+			pathBashdb = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir/bashdb",
+			pathBashdbLib = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir",
+			trace = true,
+			file = "${file}",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+			pathCat = "cat",
+			pathBash = "/bin/bash",
+			pathMkfifo = "mkfifo",
+			pathPkill = "pkill",
+			args = {},
+			env = {},
+			terminalKind = "integrated",
+		},
+	}
+
+	dap.configurations.c = {
 		{
 			name = "Launch",
 			type = "gdb",
@@ -70,6 +194,58 @@ dap_config = function(plugin, opts)
 			stopAtBeginningOfMainSubprogram = false,
 		},
 	}
+
+	dap.configurations.cpp = dap.configurations.c
+
+	dap.configurations.lua = {
+		{
+			name = "Current file (local-lua-dbg, nlua)",
+			type = "local-lua",
+			request = "launch",
+			cwd = "${workspaceFolder}",
+			program = {
+				lua = "nlua.lua",
+				file = "${file}",
+			},
+			verbose = true,
+			args = {},
+		},
+	}
+
+	dap.configurations.python = {
+		{
+			type = "python",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			pythonPath = function()
+				local cwd = vim.fn.getcwd()
+				if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+					return cwd .. "/venv/bin/python"
+				elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+					return cwd .. "/.venv/bin/python"
+				else
+					return "/usr/bin/python"
+				end
+			end,
+		},
+	}
+end
+
+--------------------------------------------------------------------------------
+
+-- lldebugger
+
+lldebugger_config = function(_, _) end
+
+--------------------------------------------------------------------------------
+
+-- dap-python
+
+dap_python_config = function(plugin, opts)
+	dap_python_keymaps(plugin, opts)
+	local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python3"
+	require(plugin.main).setup(path)
 end
 
 --------------------------------------------------------------------------------
@@ -96,7 +272,9 @@ end
 
 nvim_lint_config = function(plugin, opts)
 	nvim_lint_keymaps(plugin, opts)
-	plugin.linters_by_ft = {
+	nvim_lint_autocmds(plugin, opts)
+	local lint = require(plugin.main)
+	lint.linters_by_ft = {
 		bash = { "shellcheck" },
 		cmake = { "cmakelang", "cmakelint" },
 		cpp = { "cpplint" },
@@ -109,7 +287,7 @@ nvim_lint_config = function(plugin, opts)
 		latex = { "vale" },
 		lua = { "luacheck" },
 		markdown = { "vale", "write-good", "misspell" },
-		python = { "flake8", "pydocstyle" },
+		python = { "flake8", "mypy", "pylint" },
 		sql = { "sqlfluff" },
 		systemverilog = { "verible" },
 		yaml = { "yamllint" },
@@ -129,14 +307,15 @@ lspconfig_config = function(plugin, opts)
 	local capabilities = cmp_nvim_lsp.default_capabilities()
 
 	local on_attach = function(_, bufnr)
-		opts = { noremap = true, silent = false, buffer = bufnr }
+		local options = { noremap = true, silent = false, buffer = bufnr }
 
-		vim.keymap.set("n", "<A-a>", ":lua vim.lsp.buf.code_action()<CR>", opts)
-		vim.keymap.set("n", "<A-k>", ":lua vim.lsp.buf.hover()<CR>", opts)
-		vim.keymap.set("n", "<A-d>", ":lua vim.lsp.buf.definition()<CR>", opts)
-		vim.keymap.set("n", "<A-i>", ":lua vim.lsp.buf.implementation()<CR>", opts)
-		vim.keymap.set("n", "<A-r>", ":lua vim.lsp.buf.rename()<CR>", opts)
-		vim.keymap.set("n", "<A-CR>", vim.diagnostic.open_float, opts)
+		vim.keymap.set("n", "<A-a>", ":lua vim.lsp.buf.code_action()<CR>", options)
+		vim.keymap.set("n", "<A-k>", ":lua vim.lsp.buf.hover()<CR>", options)
+		vim.keymap.set("n", "<A-d>", ":lua vim.lsp.buf.declaration()<CR>", options)
+		vim.keymap.set("n", "<A-D>", ":lua vim.lsp.buf.definition()<CR>", options)
+		vim.keymap.set("n", "<A-i>", ":lua vim.lsp.buf.implementation()<CR>", options)
+		vim.keymap.set("n", "<A-r>", ":lua vim.lsp.buf.rename()<CR>", options)
+		vim.keymap.set("n", "<A-CR>", vim.diagnostic.open_float, options)
 	end
 
 	local signs = { Error = "󰅙 ", Warn = " ", Hint = "󰠠 ", Info = "󰋗 " }
@@ -152,13 +331,11 @@ lspconfig_config = function(plugin, opts)
 		settings = {
 			-- custom setting for lua
 			Lua = {
-				-- make the language server recognize "vim" global
 				diagnostics = {
 					globals = { "vim" },
 				},
 			},
 			workspace = {
-				-- make language server aware of runtime files
 				libary = {
 					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 					[vim.fn.stdpath("config") .. "../lua"] = true,
@@ -167,51 +344,39 @@ lspconfig_config = function(plugin, opts)
 		},
 	})
 
+	lspconfig["bashls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	lspconfig["clangd"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	lspconfig["dockerls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	lspconfig["docker_compose_language_service"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+	lspconfig["ltex"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
 	lspconfig["pyright"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
-	--  luacheck = require("efmls-configs.linters.luacheck")
-	--  stylua = require("efmls-configs.formatters.stylua")
-	--  flake8 = require("efmls-configs.linters.flake8")
-	--  black = require("efmls-configs.formatters.black")
-	--
-	-- -- configure efm server
-	-- lspconfig.efm.setup({
-	-- 	filetypes = {
-	-- 		"lua",
-	-- 		"python",
-	-- 	},
-	-- 	init_options = {
-	-- 		documentFormatting = true,
-	-- 		documentRangFormatting = true,
-	-- 		houver = true,
-	-- 		documentSymbol = true,
-	-- 		codeAction = true,
-	-- 		completion = true,
-	-- 	},
-	-- 	settings = {
-	-- 		languages = {
-	-- 			lua = { luacheck, stylua },
-	-- 			python = { flake8, black },
-	-- 		},
-	-- 	},
-	-- })
-	--
-	--  lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
-	-- vim.api.nvim_create_autocmd("BufWritePost", {
-	-- 	group = lsp_fmt_group,
-	-- 	callback = function()
-	-- 		 efm = vim.lsp.get_active_clients({ name = "efm" })
-	--
-	-- 		if vim.tbl_isempty(efm) then
-	-- 			return
-	-- 		end
-	--
-	-- 		vim.lsp.buf.format({ name = "efm" })
-	-- 	end,
-	-- })
+	lspconfig["vale_ls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
 end
 
 --------------------------------------------------------------------------------
@@ -228,6 +393,15 @@ end
 
 mason_lspconfig_config = function(plugin, opts)
 	mason_lspconfig_keymaps(plugin, opts)
+	require(plugin.main).setup(opts)
+end
+
+--------------------------------------------------------------------------------
+
+-- mason-nvim-dap
+
+mason_nvim_dap_config = function(plugin, opts)
+	mason_nvim_dap_keymaps(plugin, opts)
 	require(plugin.main).setup(opts)
 end
 
