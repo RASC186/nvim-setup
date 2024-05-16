@@ -104,7 +104,7 @@ readarray -t download_links < \
 	<(curl -s "https://github.com/ryanoasis/nerd-fonts/releases/expanded_assets/${latest_version}" |\
   grep -oP "\"/ryanoasis/nerd-fonts/releases/download/${latest_version}/[\\w\\d\\.]+\"")
 
-if [[ -z ${download_links} ]] ; then
+if [[ -z ${download_links[*]} ]] ; then
   echo -e "\033[0;31mLinks not found.\033[0m"
   exit
 else
@@ -114,10 +114,10 @@ fi
 declare -A fonts
 for link in "${download_links[@]}" ; do
 	font_name=$(echo "${link}" | grep -oP '(?<=/)[\w\d]+(?=\.[\w\d\.]+")')
-	fonts["${font_name}"]="$(echo ${link} | tr -d '"')"
+	fonts["${font_name}"]="$(echo "${link}" | tr -d '"')"
 done
 
-keys="${!fonts[@]}"
+keys=${!fonts[*]}
 sorted_keys=$(echo -e "${keys// /\\n}" | sort)
 
 PS3="Insert font number: "
