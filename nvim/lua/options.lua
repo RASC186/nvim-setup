@@ -202,33 +202,9 @@ end
 
 --------------------------------------------------------------------------------
 
--- Git
+-- Gitsigns
 
-gitsigns_opts = function(plugin, opts)
-	opts.signcolumn = true
-	opts.numhl = true
-	opts.linehl = true
-	opts.word_diff = true
-	opts.current_line_blame = true
-	opts.signs = {
-		add = { text = "┃" },
-		change = { text = "┃" },
-		delete = { text = "_" },
-		topdelete = { text = "‾" },
-		changedelete = { text = "~" },
-		untracked = { text = "┆" },
-	}
-	opts.preview_config = {
-		border = "single",
-		style = "minimal",
-		relative = "cursor",
-		row = 0,
-		col = 1,
-	}
-	opts.current_line_blame_formatter = {
-		"<author>, <author_time:%Y-%m-%d> - <summary>",
-	}
-end
+gitsigns_opts = nil
 
 --------------------------------------------------------------------------------
 
