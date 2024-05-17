@@ -266,6 +266,7 @@ end
 mason_nvim_dap_opts = function(plugin, opts)
 	opts.ensure_installed = {
 		"bash-debug-adapter",
+		"codelldb",
 		"debugpy",
 	}
 	opts.automatic_installation = false

@@ -111,22 +111,33 @@ dap_config = function(plugin, opts)
 		name = "bashdb",
 	}
 
-	dap.adapters.gdb = {
-		type = "executable",
-		command = "gdb",
-		args = { "-i", "dap" },
+	dap.adapters.codelldb = {
+		type = "server",
+		port = "${port}",
+		executable = {
+			command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
+			args = { "--port", "${port}" },
+			-- On windows you may have to uncomment this:
+			-- detached = false,
+		},
 	}
+
+	-- dap.adapters.gdb = {
+	-- 	type = "executable",
+	-- 	command = "gdb",
+	-- 	args = { "-i", "dap" },
+	-- }
 
 	dap.adapters["local-lua"] = {
 		type = "executable",
-		command = "node",
+		command = "ts-node",
 		args = {
-			"/absolute/path/to/local-lua-debugger-vscode/extension/debugAdapter.js",
+			vim.fn.stdpath("data") .. "/lazy/local-lua-debugger-vscode/extension/debugAdapter.ts",
 		},
 		enrich_config = function(config, on_config)
 			if not config["extensionPath"] then
 				local c = vim.deepcopy(config)
-				c.extensionPath = "/absolute/path/to/local-lua-debugger-vscode/"
+				c.extensionPath = vim.fn.stdpath("data") .. "/lazy/local-lua-debugger-vscode/"
 				on_config(c)
 			else
 				on_config(config)
@@ -151,7 +162,7 @@ dap_config = function(plugin, opts)
 		else
 			cb({
 				type = "executable",
-				command = "path/to/virtualenvs/debugpy/bin/python",
+				command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python",
 				args = { "-m", "debugpy.adapter" },
 				options = {
 					source_filetype = "python",
@@ -182,20 +193,33 @@ dap_config = function(plugin, opts)
 		},
 	}
 
-	dap.configurations.c = {
+	dap.configurations.cpp = {
 		{
-			name = "Launch",
-			type = "gdb",
+			name = "Launch file",
+			type = "codelldb",
 			request = "launch",
 			program = function()
 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 			end,
 			cwd = "${workspaceFolder}",
-			stopAtBeginningOfMainSubprogram = false,
+			stopOnEntry = false,
 		},
 	}
 
-	dap.configurations.cpp = dap.configurations.c
+	-- dap.configurations.c = {
+	-- 	{
+	-- 		name = "Launch",
+	-- 		type = "gdb",
+	-- 		request = "launch",
+	-- 		program = function()
+	-- 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+	-- 		end,
+	-- 		cwd = "${workspaceFolder}",
+	-- 		stopAtBeginningOfMainSubprogram = false,
+	-- 	},
+	-- }
+
+	dap.configurations.c = dap.configurations.cpp
 
 	dap.configurations.lua = {
 		{
