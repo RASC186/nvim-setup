@@ -41,28 +41,6 @@ nvim_autopairs_priority = 1
 
 --------------------------------------------------------------------------------
 
--- Spectre
-
-spectre_main = "spectre"
-
-spectre_tag = nil
-
-spectre_url = "https://github.com/nvim-pack/nvim-spectre"
-
-spectre_dependencies = nil
-
-spectre_lazy = true
-
-spectre_cmd = {
-	"Spectre",
-}
-
-spectre_events = nil
-
-spectre_priority = 1
-
---------------------------------------------------------------------------------
-
 -- Pencil
 
 vim_pencil_main = nil

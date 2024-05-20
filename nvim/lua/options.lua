@@ -79,30 +79,6 @@ end
 
 --------------------------------------------------------------------------------
 
--- Spectre
-
-spectre_opts = function(plugin, opts)
-	opts.color_devicons = true
-	opts.open_cmd = "vnew"
-	opts.live_update = false
-	opts.lnum_for_results = true
-	opts.line_sep_start = "┌-----------------------------------------"
-	opts.result_padding = "¦  "
-	opts.line_sep = "└-----------------------------------------"
-	opts.replace_vim_cmd = "cdo"
-	opts.is_open_target_win = true
-	opts.is_insert_mode = false
-	opts.is_block_ui_break = false
-	opts.open_template = {}
-	opts.highlight = {
-		ui = "String",
-		search = "DiffChange",
-		replace = "DiffDelete",
-	}
-end
-
---------------------------------------------------------------------------------
-
 -- Pencil
 
 vim_pencil_opts = nil

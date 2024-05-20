@@ -24,15 +24,6 @@ end
 
 --------------------------------------------------------------------------------
 
--- Spectre
-
-spectre_config = function(plugin, opts)
-	spectre_keymaps(plugin, opts)
-	require(plugin.main).setup(opts)
-end
-
---------------------------------------------------------------------------------
-
 -- Pencil
 
 vim_pencil_config = function(plugin, opts)

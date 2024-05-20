@@ -34,21 +34,6 @@ local nvim_autopairs = {
 
 --------------------------------------------------------------------------------
 
-local spectre = {
-	main = spectre_main,
-	tag = spectre_tag,
-	url = spectre_url,
-	dependencies = spectre_dependencies,
-	lazy = spectre_lazy,
-	cmd = spectre_cmd,
-	events = spectre_events,
-	priority = spectre_priority,
-	opts = spectre_opts,
-	config = spectre_config,
-}
-
---------------------------------------------------------------------------------
-
 local vim_pencil = {
 	main = vim_pencil_main,
 	tag = vim_pencil_tag,
@@ -503,7 +488,6 @@ require("lazy").setup({
 	neoconf,
 	comment,
 	nvim_autopairs,
-	spectre,
 	vim_pencil,
 	luasnip,
 	nvim_cmp,
