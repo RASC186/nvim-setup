@@ -434,6 +434,7 @@ end
 
 nvim_treesitter_config = function(plugin, opts)
 	nvim_treesitter_keymaps(plugin, opts)
+	nvim_treesitter_autocmds(plugin, opts)
 	require(plugin.main).setup(opts)
 end
 
