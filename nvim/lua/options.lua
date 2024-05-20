@@ -126,6 +126,32 @@ end
 
 --------------------------------------------------------------------------------
 
+-- nvim-dap-virtual-text
+
+nvim_dap_virtual_text_opts = function(plugin, opts)
+	opts.enabled = true
+	opts.enabled_commands = true
+	opts.highlight_changed_variables = true
+	opts.show_stop_reason = true
+	opts.commented = false
+	opts.only_first_definition = true
+	opts.all_references = false
+	opts.clear_on_continue = false
+	opts.display_callback = function(variable, buf, stackframe, node, options)
+		if options.virt_text_pos == "inline" then
+			return " = " .. variable.value
+		else
+			return variable.name .. " = " .. variable.value
+		end
+	end
+	opts.virt_text_pos = vim.fn.has("nvim-0.10") == 1 and "inline" or "eol"
+	opts.all_frames = false
+	opts.virt_lines = false
+	opts.virt_text_win_col = nil
+end
+
+--------------------------------------------------------------------------------
+
 -- dapui
 
 dapui_opts = nil

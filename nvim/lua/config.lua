@@ -64,6 +64,16 @@ end
 
 --------------------------------------------------------------------------------
 
+-- nvim_dap_virtual_text
+
+nvim_dap_virtual_text_config = function(plugin, opts)
+	nvim_dap_virtual_text_keymaps(plugin, opts)
+	local nvim_dap_virtual_text = require(plugin.main)
+	nvim_dap_virtual_text.setup(opts)
+end
+
+--------------------------------------------------------------------------------
+
 -- dapui
 
 dapui_config = function(plugin, opts)

@@ -79,6 +79,21 @@ local nvim_cmp = {
 
 --------------------------------------------------------------------------------
 
+local nvim_dap_virtual_text = {
+	main = nvim_dap_virtual_text_main,
+	tag = nvim_dap_virtual_text_tag,
+	url = nvim_dap_virtual_text_url,
+	dependencies = nvim_dap_virtual_text_dependencies,
+	lazy = nvim_dap_virtual_text_lazy,
+	cmd = nvim_dap_virtual_text_cmd,
+	events = nvim_dap_virtual_text_events,
+	priority = nvim_dap_virtual_text_priority,
+	opts = nvim_dap_virtual_text_opts,
+	config = nvim_dap_virtual_text_config,
+}
+
+--------------------------------------------------------------------------------
+
 local dapui = {
 	main = dapui_main,
 	tag = dapui_tag,
@@ -491,6 +506,7 @@ require("lazy").setup({
 	vim_pencil,
 	luasnip,
 	nvim_cmp,
+	nvim_dap_virtual_text,
 	dapui,
 	dap,
 	lldebugger,

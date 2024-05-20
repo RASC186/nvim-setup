@@ -123,6 +123,32 @@ nvim_cmp_priority = 1
 
 --------------------------------------------------------------------------------
 
+-- nvim-dap-virtual-text
+
+nvim_dap_virtual_text_main = "nvim-dap-virtual-text"
+
+nvim_dap_virtual_text_tag = nil
+
+nvim_dap_virtual_text_url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+
+nvim_dap_virtual_text_dependencies = nil
+
+nvim_dap_virtual_text_lazy = false
+
+nvim_dap_virtual_text_cmd = {
+	"DapVirtualTextEnable",
+	"DapVirtualTextDisable",
+	"DapVirtualTextToggle",
+}
+
+nvim_dap_virtual_text_events = {
+	"VeryLazy",
+}
+
+nvim_dap_virtual_text_priority = 1
+
+--------------------------------------------------------------------------------
+
 -- dapui
 
 dapui_main = "dapui"
@@ -134,6 +160,7 @@ dapui_url = "https://github.com/rcarriga/nvim-dap-ui"
 dapui_dependencies = {
 	"https://github.com/mfussenegger/nvim-dap",
 	"https://github.com/nvim-neotest/nvim-nio",
+	"https://github.com/theHamsta/nvim-dap-virtual-text",
 }
 
 dapui_lazy = false
