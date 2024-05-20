@@ -139,10 +139,17 @@ end
 
 -- dap
 
-dap_keymaps = function(plugin, opts)
+dap_keymaps = function(plugin, _)
 	local dap = require(plugin.main)
-	vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, {})
-	vim.keymap.set("n", "<leader>dc", dap.continue, {})
+	vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
+	vim.keymap.set("n", "<leader>dc", dap.continue)
+	vim.keymap.set("n", "<leader>dn", dap.step_over)
+	vim.keymap.set("n", "<leader>di", dap.step_into)
+	vim.keymap.set("n", "<leader>dp", dap.step_back)
+	vim.keymap.set("n", "<leader>dd", function()
+		dap.disconnect()
+		dap.close()
+	end, {})
 end
 
 --------------------------------------------------------------------------------

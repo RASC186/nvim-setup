@@ -107,32 +107,7 @@ dap_config = function(plugin, opts)
 		executable = {
 			command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
 			args = { "--port", "${port}" },
-			-- On windows you may have to uncomment this:
-			-- detached = false,
 		},
-	}
-
-	-- dap.adapters.gdb = {
-	-- 	type = "executable",
-	-- 	command = "gdb",
-	-- 	args = { "-i", "dap" },
-	-- }
-
-	dap.adapters["local-lua"] = {
-		type = "executable",
-		command = "ts-node",
-		args = {
-			vim.fn.stdpath("data") .. "/lazy/local-lua-debugger-vscode/extension/debugAdapter.ts",
-		},
-		enrich_config = function(config, on_config)
-			if not config["extensionPath"] then
-				local c = vim.deepcopy(config)
-				c.extensionPath = vim.fn.stdpath("data") .. "/lazy/local-lua-debugger-vscode/"
-				on_config(c)
-			else
-				on_config(config)
-			end
-		end,
 	}
 
 	dap.adapters.python = function(cb, config)
@@ -183,7 +158,7 @@ dap_config = function(plugin, opts)
 		},
 	}
 
-	dap.configurations.cpp = {
+	dap.configurations.c = {
 		{
 			name = "Launch file",
 			type = "codelldb",
@@ -196,35 +171,7 @@ dap_config = function(plugin, opts)
 		},
 	}
 
-	-- dap.configurations.c = {
-	-- 	{
-	-- 		name = "Launch",
-	-- 		type = "gdb",
-	-- 		request = "launch",
-	-- 		program = function()
-	-- 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-	-- 		end,
-	-- 		cwd = "${workspaceFolder}",
-	-- 		stopAtBeginningOfMainSubprogram = false,
-	-- 	},
-	-- }
-
-	dap.configurations.c = dap.configurations.cpp
-
-	dap.configurations.lua = {
-		{
-			name = "Current file (local-lua-dbg, nlua)",
-			type = "local-lua",
-			request = "launch",
-			cwd = "${workspaceFolder}",
-			program = {
-				lua = "nlua.lua",
-				file = "${file}",
-			},
-			verbose = true,
-			args = {},
-		},
-	}
+	dap.configurations.cpp = dap.configurations.c
 
 	dap.configurations.python = {
 		{
@@ -258,7 +205,7 @@ lldebugger_config = function(_, _) end
 
 dap_python_config = function(plugin, opts)
 	dap_python_keymaps(plugin, opts)
-	local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python3"
+	local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 	require(plugin.main).setup(path)
 end
 
