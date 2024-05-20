@@ -99,7 +99,7 @@ nvim_cmp_opts = function(plugin, opts)
 	local lspkind = require("lspkind")
 
 	opts.completion = {
-		completeopt = "menu,menuone,preview,noselect",
+		completeopt = "menuone,preview,noselect",
 	}
 
 	opts.snippet = {
@@ -108,19 +108,28 @@ nvim_cmp_opts = function(plugin, opts)
 		end,
 	}
 
+	opts.performance = {
+		max_view_entries = 4,
+	}
+
 	opts.formatting = {
 		format = lspkind.cmp_format({ maxwidth = 50, ellipsis_char = "..." }),
 	}
 
+	opts.matching = {
+		disallow_fullfuzzy_matching = true,
+	}
+
 	opts.window = {
+		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	}
 
 	opts.sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "buffer" },
-		{ name = "path" },
+		{ name = "nvim_lsp", keyword_length = 3, max_item_count = 3 },
+		{ name = "luasnip", keyword_length = 3, max_item_count = 2 },
+		{ name = "buffer", keyword_length = 5, max_item_count = 3 },
+		{ name = "path", keyword_length = 1, max_item_count = 3 },
 	})
 end
 
