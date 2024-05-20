@@ -309,13 +309,15 @@ lspconfig_config = function(plugin, opts)
 	lspconfig["ltex"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		root_dir = function()
+			return vim.fn.stdpath("data") .. "/mason/packages/ltex-ls/ltex-ls-16.0.0/bin"
+		end,
 	})
 
 	lspconfig["lua_ls"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 		settings = {
-			-- custom setting for lua
 			Lua = {
 				diagnostics = {
 					globals = { "vim" },
@@ -331,11 +333,6 @@ lspconfig_config = function(plugin, opts)
 	})
 
 	lspconfig["pyright"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
-
-	lspconfig["vale_ls"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 	})

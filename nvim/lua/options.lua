@@ -274,7 +274,6 @@ mason_lspconfig_opts = function(plugin, opts)
 		"ltex",
 		"lua_ls",
 		"autotools_ls",
-		"vale_ls",
 		"matlab_ls",
 		"pyright",
 		"rust_analyzer",

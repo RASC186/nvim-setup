@@ -281,13 +281,9 @@ nvim_treesitter_keymaps = function(plugin, opts)
 		mappings = {
 
 			i = {
-
-				["<C-h>"] = "which_key",
-
 				["<S-Up>"] = function(bufnr)
 					slow_scroll(bufnr, -1)
 				end,
-
 				["<S-Down>"] = function(bufnr)
 					slow_scroll(bufnr, 1)
 				end,

@@ -15,7 +15,6 @@ nvim_autopairs_autocmds = function(plugin, opts) end
 
 -- Pencil
 
-
 --------------------------------------------------------------------------------
 
 -- luasnip
@@ -104,7 +103,7 @@ mason_autocmds = function(plugin, opts) end
 
 nvim_treesitter_autocmds = function(plugin, opts)
 	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "*.tex",
+		pattern = "tex",
 		callback = function(args)
 			vim.treesitter.start(args.buf, "latex")
 		end,
