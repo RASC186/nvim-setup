@@ -321,8 +321,8 @@ end
 
 -- goyo
 
-goyo_keymaps = function(plugin, opts)
-	vim.keymap.set("n", "<leader>gg", ":Goyo<CR>")
+goyo_keymaps = function(_, _)
+	vim.keymap.set("n", "<leader>G", ":Goyo<CR><ESC>")
 end
 
 --------------------------------------------------------------------------------
