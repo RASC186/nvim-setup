@@ -272,8 +272,8 @@ lspconfig_config = function(plugin, opts)
 
 		vim.keymap.set("n", "<A-a>", ":lua vim.lsp.buf.code_action()<CR>", options)
 		vim.keymap.set("n", "<A-k>", ":lua vim.lsp.buf.hover()<CR>", options)
-		vim.keymap.set("n", "<A-d>", ":lua vim.lsp.buf.declaration()<CR>", options)
-		vim.keymap.set("n", "<A-D>", ":lua vim.lsp.buf.definition()<CR>", options)
+		vim.keymap.set("n", "<A-d>", ":lua vim.lsp.buf.definition()<CR>", options)
+		vim.keymap.set("n", "<A-D>", ":lua vim.lsp.buf.declaration()<CR>", options)
 		vim.keymap.set("n", "<A-i>", ":lua vim.lsp.buf.implementation()<CR>", options)
 		vim.keymap.set("n", "<A-r>", ":lua vim.lsp.buf.rename()<CR>", options)
 		vim.keymap.set("n", "<A-CR>", vim.diagnostic.open_float, options)
@@ -285,25 +285,6 @@ lspconfig_config = function(plugin, opts)
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
-
-	lspconfig["lua_ls"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		settings = {
-			-- custom setting for lua
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
-				},
-			},
-			workspace = {
-				libary = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.stdpath("config") .. "../lua"] = true,
-				},
-			},
-		},
-	})
 
 	lspconfig["bashls"].setup({
 		capabilities = capabilities,
@@ -324,9 +305,29 @@ lspconfig_config = function(plugin, opts)
 		capabilities = capabilities,
 		on_attach = on_attach,
 	})
+
 	lspconfig["ltex"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+	})
+
+	lspconfig["lua_ls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		settings = {
+			-- custom setting for lua
+			Lua = {
+				diagnostics = {
+					globals = { "vim" },
+				},
+			},
+			workspace = {
+				libary = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "../lua"] = true,
+				},
+			},
+		},
 	})
 
 	lspconfig["pyright"].setup({
