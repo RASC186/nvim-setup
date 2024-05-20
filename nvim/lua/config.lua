@@ -473,6 +473,8 @@ end
 
 neodev_config = function(plugin, opts)
 	neoconf_keymaps(plugin, opts)
+	local neodev = require(plugin.main)
+	neodev.setup(opts)
 end
 
 --------------------------------------------------------------------------------

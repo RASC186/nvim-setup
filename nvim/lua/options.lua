@@ -575,7 +575,9 @@ end
 
 -- neodev
 
-neodev_opts = nil
+neodev_opts = function(plugin, opts)
+	opts.library = { plugins = { "nvim-dap-ui" }, types = true }
+end
 
 --------------------------------------------------------------------------------
 

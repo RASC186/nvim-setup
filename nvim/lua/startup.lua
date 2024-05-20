@@ -666,7 +666,7 @@ neoconf_priority = 3
 
 -- neodev
 
-neodev_main = nil
+neodev_main = "neodev"
 
 neodev_tag = nil
 
