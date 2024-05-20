@@ -182,13 +182,13 @@ end
 
 -- Git
 
-gitsigns_keymaps = function(plugin, opts)
-	vim.keymap.set("n", "<leader>gs", ":Gitsigns toggle_signs<CR><ESC>", {})
-	vim.keymap.set("n", "<leader>gn", ":Gitsigns toggle_numhl<CR><ESC>", {})
-	vim.keymap.set("n", "<leader>gl", ":Gitsigns toggle_linehl<CR><ESC>", {})
-	vim.keymap.set("n", "<leader>gd", ":Gitsigns toggle_word_diff<CR><Esc>", {})
-	vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk_inline<CR><Esc>", {})
-	vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR><Esc>", {})
+gitsigns_keymaps = function(_, _)
+	vim.keymap.set("n", "<leader>gs", ":Gitsigns toggle_signs<CR><ESC>")
+	vim.keymap.set("n", "<leader>gn", ":Gitsigns toggle_numhl<CR><ESC>")
+	vim.keymap.set("n", "<leader>gl", ":Gitsigns toggle_linehl<CR><ESC>")
+	vim.keymap.set("n", "<leader>gd", ":Gitsigns toggle_word_diff<CR><Esc>")
+	vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk_inline<CR><Esc>")
+	vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR><Esc>")
 end
 
 --------------------------------------------------------------------------------
