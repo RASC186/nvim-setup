@@ -128,10 +128,11 @@ nvim_dap_virtual_text_keymaps = function(_, _) end
 
 -- dapui
 
-dapui_keymaps = function(plugin, opts)
+dapui_keymaps = function(plugin, _)
 	local dapui = require(plugin.main)
-	vim.api.nvim_set_keymap("n", "<leader>dt", ":lua require('dapui').toggle()<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset=true})<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset=true})<CR><ESC>", {})
+	vim.api.nvim_set_keymap("n", "<leader>dt", ":lua require('dapui').toggle({reset=true})<CR><ESC>", {})
+	vim.api.nvim_set_keymap("n", "<leader>dq", ":lua require('dapui').close()<CR><ESC>", {})
 end
 
 --------------------------------------------------------------------------------

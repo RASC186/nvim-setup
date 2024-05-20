@@ -154,7 +154,24 @@ end
 
 -- dapui
 
-dapui_opts = nil
+dapui_opts = function(plugin, opts)
+	opts.sidebars = {
+		elements = {
+			"scopes",
+			"scopes",
+			"watches",
+		},
+		width = 40,
+		position = "left",
+	}
+	opts.tray = {
+		elements = {
+			"repl",
+		},
+		height = 10,
+		position = "bottom",
+	}
+end
 
 --------------------------------------------------------------------------------
 
