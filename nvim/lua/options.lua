@@ -251,6 +251,7 @@ conform_opts = function(plugin, opts)
 		json = { "fixjson" },
 		latex = { "latexindent" },
 		lua = { "stylua" },
+		markdown = { "mdformat" },
 		python = { "black" },
 		sql = { "sqlfmt" },
 		systemverilog = { "verible" },
