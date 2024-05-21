@@ -15,6 +15,8 @@ nvim_autopairs_autocmds = function(plugin, opts) end
 
 -- Pencil
 
+vim_pencil_autocmds = function(plugin, opts) end
+
 --------------------------------------------------------------------------------
 
 -- luasnip
