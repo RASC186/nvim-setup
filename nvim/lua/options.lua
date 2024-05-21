@@ -396,7 +396,7 @@ nvim_treesitter_opts = function(plugin, opts)
 		"yang",
 	}
 	opts.sync_install = true
-	opts.auto_install = true
+	opts.auto_install = false
 end
 
 --------------------------------------------------------------------------------
