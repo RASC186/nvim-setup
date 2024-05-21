@@ -28,10 +28,11 @@ opt.completeopt = "menuone,noinsert,noselect"
 
 opt.hidden = true
 opt.errorbells = false
-opt.swapfile = false
-opt.backup = false
+opt.swapfile = true
+opt.backupdir = vim.fn.expand("~/.vim/backup")
+opt.backup = true
 opt.undodir = vim.fn.expand("~/.vim/undodir")
-opt.undofile = false
+opt.undofile = true
 opt.backspace = "indent,eol,start"
 opt.splitright = true
 opt.splitbelow = true
