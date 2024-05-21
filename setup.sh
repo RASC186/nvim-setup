@@ -23,6 +23,10 @@ echo -e "\n\033[32mInstalling Neovim dependencies\033[0m\n"
 
 sudo apt install -y snap git curl unzip luarocks npm cargo golang gdb ripgrep
 
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+nvm install 20
+
 readarray -t lua_versions < \
   <(apt list lua* | grep -oP "lua[\d\.]+(?=/)" | sort -r)
 
