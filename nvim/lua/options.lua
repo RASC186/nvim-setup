@@ -600,7 +600,7 @@ end
 
 neoconf_opts = function(plugin, opts)
 	opts._settings = ".neoconf.json"
-	opts.global_settings = "/lua/lsp/config/neoconf.json"
+	-- opts.global_settings = "/lua/lsp/config/neoconf.json"
 	opts.live_reload = true
 	opts.filetype_jsonc = true
 	opts.import = {
