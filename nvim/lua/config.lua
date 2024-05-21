@@ -246,6 +246,7 @@ end
 
 conform_config = function(plugin, opts)
 	conform_keymaps(plugin, opts)
+	conform_autocmds(plugin, opts)
 	require(plugin.main).setup(opts)
 end
 
