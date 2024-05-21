@@ -93,6 +93,46 @@ luasnip_priority = 2
 
 --------------------------------------------------------------------------------
 
+-- cmp-vimtex
+
+cmp_vimtex_main = "cmp_vimtex"
+
+cmp_vimtex_tag = nil
+
+cmp_vimtex_url = "https://github.com/micangl/cmp-vimtex"
+
+cmp_vimtex_dependencies = nil
+
+cmp_vimtex_lazy = false
+
+cmp_vimtex_cmd = nil
+
+cmp_vimtex_events = nil
+
+cmp_vimtex_priority = 1
+
+--------------------------------------------------------------------------------
+
+-- vimtex
+
+vimtex_main = nil
+
+vimtex_tag = "v2.15"
+
+vimtex_url = "https://github.com/lervag/vimtex"
+
+vimtex_dependencies = nil
+
+vimtex_lazy = false
+
+vimtex_cmd = nil
+
+vimtex_events = nil
+
+vimtex_priority = 1
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_main = "cmp"
@@ -105,6 +145,7 @@ nvim_cmp_dependencies = {
 	"https://github.com/hrsh7th/cmp-nvim-lsp",
 	"https://github.com/hrsh7th/cmp-buffer",
 	"https://github.com/hrsh7th/cmp-path",
+	"https://github.com/micangl/cmp-vimtex",
 	"https://github.com/hrsh7th/cmp-cmdline",
 	"https://github.com/L3MON4D3/LuaSnip",
 	"https://github.com/saadparwaiz1/cmp_luasnip",

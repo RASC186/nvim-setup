@@ -23,6 +23,12 @@ luasnip_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 
+-- vimtex
+
+vimtex_autocmds = function(plugin, opts) end
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_autocmds = function(plugin, opts) end

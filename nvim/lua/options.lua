@@ -91,6 +91,39 @@ luasnip_opts = nil
 
 --------------------------------------------------------------------------------
 
+-- cmp-vimtex
+
+cmp_vimtex_opts = function(plugin, opts)
+	opts.additional_information = {
+		info_in_menu = true,
+		info_in_window = true,
+		info_max_length = 60,
+		match_against_info = true,
+		symbols_in_menu = true,
+	}
+	opts.bibtex_parser = {
+		enabled = true,
+	}
+	opts.search = {
+		browser = "xdg-open",
+		default = "google_scholar",
+		search_engines = {
+			google_scholar = {
+				name = "Google Scholar",
+				get_url = require("cmp_vimtex").url_default_format("https://scholar.google.com/scholar?hl=en&q=%s"),
+			},
+		},
+	}
+end
+
+--------------------------------------------------------------------------------
+
+-- vimtex
+
+vimtex_opts = nil
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_opts = function(plugin, opts)
@@ -127,7 +160,8 @@ nvim_cmp_opts = function(plugin, opts)
 
 	opts.sources = cmp.config.sources({
 		{ name = "nvim_lsp", keyword_length = 3, max_item_count = 3 },
-		{ name = "luasnip", keyword_length = 3, max_item_count = 2 },
+		{ name = "luasnip", keyword_length = 2, max_item_count = 3 },
+		{ name = "vimtex", keyword_length = 2, max_item_count = 3 },
 		{ name = "buffer", keyword_length = 5, max_item_count = 3 },
 		{ name = "path", keyword_length = 1, max_item_count = 3 },
 	})

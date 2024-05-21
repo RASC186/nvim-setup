@@ -55,6 +55,37 @@ end
 
 --------------------------------------------------------------------------------
 
+-- cmp-vimtex
+
+cmp_vimtex_config = function(plugin, opts)
+	cmp_vimtex_keymaps(plugin, opts)
+	require(plugin.main).setup()
+end
+
+--------------------------------------------------------------------------------
+
+-- vimtex
+
+vimtex_config = function(plugin, opts)
+	vim.g.vimtex_view_method = "zathura_simple"
+	vim.g.vimtex_syntax_enabled = 0
+	vim.g.vimtex_quickfix_mode = 1
+	vim.g.vimtex_mappings_enabled = 1
+	vim.g.vimtex_indent_enabled = 1
+	vim.g.tex_flavor = "latex"
+	vim.g.tex_indent_items = 1
+	vim.g.tex_indent_brace = 1
+	vim.g.vimtex_context_pdf_viewer = "okular"
+	vim.g.rvimtex_log_ignore = {
+		"Underfull",
+		"Overfull",
+		"specifier changed to",
+		"Token not allowed in a PDF string",
+	}
+end
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_config = function(plugin, opts)
