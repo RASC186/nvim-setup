@@ -90,7 +90,10 @@ nvim_autopairs_keymaps = function(_, _) end
 
 -- Pencil
 
-vim_pencil_keymaps = function(_, _) end
+vim_pencil_keymaps = function(_, _)
+	vim.api.nvim_set_keymap("n", "<leader>p", "gqap<ESC>", { silent = true })
+	vim.api.nvim_set_keymap("n", "<leader>P", "ggVGgq<ESC>", { silent = true })
+end
 
 --------------------------------------------------------------------------------
 

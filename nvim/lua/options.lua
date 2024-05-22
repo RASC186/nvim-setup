@@ -475,15 +475,15 @@ end
 zen_mode_opts = function(plugin, opts)
 	opts.window = {
 		backdrop = 0.75,
-		width = 80,
+		width = 90,
 		height = 25,
 		options = {
 			signcolumn = "no",
 			number = false,
 			relativenumber = false,
-			cursorline = true,
+			cursorline = false,
 			cursorcolumn = false,
-			foldcolumn = "3",
+			foldcolumn = "5",
 			list = false,
 		},
 	}

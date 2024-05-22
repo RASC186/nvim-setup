@@ -51,7 +51,7 @@ vim_pencil_url = "https://github.com/preservim/vim-pencil.git"
 
 vim_pencil_dependencies = nil
 
-vim_pencil_lazy = true
+vim_pencil_lazy = false
 
 vim_pencil_cmd = {
 	"Pencil",
