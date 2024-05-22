@@ -475,6 +475,15 @@ end
 
 --------------------------------------------------------------------------------
 
+-- twilight
+
+twilight_config = function(plugin, opts)
+	twilight_keymaps(plugin, opts)
+	require(plugin.main).setup(opts)
+end
+
+--------------------------------------------------------------------------------
+
 -- zen-mode
 
 zen_mode_config = function(plugin, opts)

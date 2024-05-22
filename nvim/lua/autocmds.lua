@@ -153,6 +153,12 @@ telescope_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 
+-- twilight
+
+twilight_autocmds = function(plugin, opts) end
+
+--------------------------------------------------------------------------------
+
 -- zen-mode
 
 zen_mode_autocmds = function(plugin, opts) end

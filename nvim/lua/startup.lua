@@ -585,7 +585,31 @@ telescope_priority = 1
 
 --------------------------------------------------------------------------------
 
--- zen_mode
+-- twilight
+
+twilight_main = "twilight"
+
+twilight_tag = nil
+
+twilight_url = "https://github.com/folke/twilight.nvim"
+
+twilight_dependencies = nil
+
+twilight_lazy = false
+
+twilight_cmd = {
+	"Twilight",
+	"TwilightEnable",
+	"TwilightDisable",
+}
+
+twilight_events = nil
+
+twilight_priority = 1
+
+--------------------------------------------------------------------------------
+
+-- zen-mode
 
 zen_mode_main = "zen-mode"
 

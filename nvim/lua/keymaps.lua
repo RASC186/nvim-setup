@@ -331,6 +331,13 @@ telescope_keymaps = function(plugin, opts)
 	vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", {})
 	vim.keymap.set("n", "<leader>fr", ":Telescope lsp_references<CR>", {})
 end
+
+--------------------------------------------------------------------------------
+
+-- twilight
+
+twilight_keymaps = function(_, _) end
+
 --------------------------------------------------------------------------------
 
 -- zen-mode

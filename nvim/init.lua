@@ -363,6 +363,21 @@ local telescope = {
 
 --------------------------------------------------------------------------------
 
+local twilight = {
+	main = twilight_main,
+	tag = twilight_tag,
+	url = twilight_url,
+	dependencies = twilight_dependencies,
+	lazy = twilight_lazy,
+	cmd = twilight_cmd,
+	events = twilight_events,
+	priority = twilight_priority,
+	opts = twilight_opts,
+	config = twilight_config,
+}
+
+--------------------------------------------------------------------------------
+
 local zen_mode = {
 	main = zen_mode_main,
 	tag = zen_mode_tag,
@@ -570,6 +585,7 @@ require("lazy").setup({
 	nvim_treesitter,
 	illuminate,
 	telescope,
+	twilight,
 	zen_mode,
 	lspkind,
 	lualine,

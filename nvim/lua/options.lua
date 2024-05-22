@@ -448,6 +448,28 @@ end
 
 --------------------------------------------------------------------------------
 
+-- twilight
+
+twilight_opts = function(plugin, opts)
+	opts.dimming = {
+		alpha = 0.25,
+		color = { "Normal", "#ffffff" },
+		term_bg = "#000000",
+		inactive = false,
+	}
+	opts.context = 6
+	opts.treesitter = true
+	opts.expand = {
+		"function",
+		"method",
+		"table",
+		"if_statement",
+	}
+	opts.exclude = {}
+end
+
+--------------------------------------------------------------------------------
+
 -- zen-mode
 
 zen_mode_opts = function(plugin, opts)
