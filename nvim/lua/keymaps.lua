@@ -333,10 +333,10 @@ telescope_keymaps = function(plugin, opts)
 end
 --------------------------------------------------------------------------------
 
--- goyo
+-- zen-mode
 
-goyo_keymaps = function(_, _)
-	vim.keymap.set("n", "<leader>G", ":Goyo<CR><ESC>")
+zen_mode_keymaps = function(_, _)
+	vim.keymap.set("n", "<leader>Z", ":ZenMode<CR><ESC>")
 end
 
 --------------------------------------------------------------------------------

@@ -448,9 +448,49 @@ end
 
 --------------------------------------------------------------------------------
 
--- goyo
+-- zen-mode
 
-goyo_opts = nil
+zen_mode_opts = function(plugin, opts)
+	opts.window = {
+		backdrop = 0.75,
+		width = 80,
+		height = 25,
+		options = {
+			signcolumn = "no",
+			number = false,
+			relativenumber = false,
+			cursorline = true,
+			cursorcolumn = false,
+			foldcolumn = "3",
+			list = false,
+		},
+	}
+	opts.plugins = {
+		options = {
+			enabled = true,
+			ruler = false,
+			showcmd = false,
+			laststatus = 0,
+		},
+		-- twilight = { enabled = true },
+		-- gitsigns = { enabled = false },
+		-- tmux = { enabled = false },
+		-- kitty = {
+		-- 	enabled = false,
+		-- 	font = "+4",
+		-- },
+		-- alacritty = {
+		-- 	enabled = false,
+		-- 	font = "14",
+		-- },
+		-- wezterm = {
+		-- 	enabled = false,
+		-- 	font = "+4",
+		-- },
+	}
+	opts.on_open = function(win) end
+	opts.on_close = function() end
+end
 
 --------------------------------------------------------------------------------
 

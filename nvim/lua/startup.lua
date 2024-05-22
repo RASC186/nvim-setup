@@ -585,25 +585,25 @@ telescope_priority = 1
 
 --------------------------------------------------------------------------------
 
--- goyo
+-- zen_mode
 
-goyo_main = nil
+zen_mode_main = "zen-mode"
 
-goyo_tag = nil
+zen_mode_tag = nil
 
-goyo_url = "https://github.com/junegunn/goyo.vim"
+zen_mode_url = "https://github.com/folke/zen-mode.nvim"
 
-goyo_dependencies = nil
+zen_mode_dependencies = nil
 
-goyo_lazy = false
+zen_mode_lazy = false
 
-goyo_cmd = {
-	"Goyo",
+zen_mode_cmd = {
+	"ZenMode",
 }
 
-goyo_events = nil
+zen_mode_events = nil
 
-goyo_priority = 1
+zen_mode_priority = 1
 
 --------------------------------------------------------------------------------
 

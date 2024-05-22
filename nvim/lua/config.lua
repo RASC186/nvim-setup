@@ -475,10 +475,11 @@ end
 
 --------------------------------------------------------------------------------
 
--- goyo
+-- zen-mode
 
-goyo_config = function(plugin, opts)
-	goyo_keymaps(plugin, opts)
+zen_mode_config = function(plugin, opts)
+	zen_mode_keymaps(plugin, opts)
+	require(plugin.main).setup(opts)
 end
 
 --------------------------------------------------------------------------------

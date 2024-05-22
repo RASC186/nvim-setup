@@ -363,17 +363,17 @@ local telescope = {
 
 --------------------------------------------------------------------------------
 
-local goyo = {
-	main = goyo_main,
-	tag = goyo_tag,
-	url = goyo_url,
-	dependencies = goyo_dependencies,
-	lazy = goyo_lazy,
-	cmd = goyo_cmd,
-	events = goyo_events,
-	priority = goyo_priority,
-	opts = goyo_opts,
-	config = goyo_config,
+local zen_mode = {
+	main = zen_mode_main,
+	tag = zen_mode_tag,
+	url = zen_mode_url,
+	dependencies = zen_mode_dependencies,
+	lazy = zen_mode_lazy,
+	cmd = zen_mode_cmd,
+	events = zen_mode_events,
+	priority = zen_mode_priority,
+	opts = zen_mode_opts,
+	config = zen_mode_config,
 }
 
 --------------------------------------------------------------------------------
@@ -570,7 +570,7 @@ require("lazy").setup({
 	nvim_treesitter,
 	illuminate,
 	telescope,
-	goyo,
+	zen_mode,
 	lspkind,
 	lualine,
 	nvim_tree,

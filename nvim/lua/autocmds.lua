@@ -153,9 +153,9 @@ telescope_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 
--- goyo
+-- zen-mode
 
-goyo_autocmds = function(plugin, opts) end
+zen_mode_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 
