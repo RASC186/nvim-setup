@@ -119,6 +119,12 @@ vimtex_keymaps = function(_, _) end
 
 --------------------------------------------------------------------------------
 
+-- markdown-preview
+
+markdown_preview_keymaps = function(_, _) end
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_keymaps = function(plugin, opts)

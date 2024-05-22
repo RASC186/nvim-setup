@@ -94,6 +94,21 @@ local vimtex = {
 
 --------------------------------------------------------------------------------
 
+local markdown_preview = {
+	main = markdown_preview_main,
+	tag = markdown_preview_tag,
+	url = markdown_preview_url,
+	dependencies = markdown_preview_dependencies,
+	lazy = markdown_preview_lazy,
+	cmd = markdown_preview_cmd,
+	events = markdown_preview_events,
+	priority = markdown_preview_priority,
+	opts = markdown_preview_opts,
+	config = markdown_preview_config,
+}
+
+--------------------------------------------------------------------------------
+
 local nvim_cmp = {
 	main = nvim_cmp_main,
 	tag = nvim_cmp_tag,
@@ -537,6 +552,7 @@ require("lazy").setup({
 	luasnip,
 	cmp_vimtex,
 	vimtex,
+	markdown_preview,
 	nvim_cmp,
 	nvim_dap_virtual_text,
 	dapui,

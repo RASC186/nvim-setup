@@ -133,6 +133,30 @@ vimtex_priority = 1
 
 --------------------------------------------------------------------------------
 
+-- markdown-preview
+
+markdown_preview_main = nil
+
+markdown_preview_tag = nil
+
+markdown_preview_url = "https://github.com/iamcco/markdown-preview.nvim"
+
+markdown_preview_dependencies = nil
+
+markdown_preview_lazy = false
+
+markdown_preview_cmd = {
+	"MarkdownPreviewToggle",
+	"MarkdownPreview",
+	"MarkdownPreviewStop",
+}
+
+markdown_preview_events = nil
+
+markdown_preview_priority = 1
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_main = "cmp"

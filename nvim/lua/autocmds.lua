@@ -31,6 +31,12 @@ vimtex_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 
+-- markdown-preview
+
+markdown_preview_autocmds = function(plugin, opts) end
+
+--------------------------------------------------------------------------------
+
 -- nvim-cmp
 
 nvim_cmp_autocmds = function(plugin, opts) end
