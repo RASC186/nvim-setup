@@ -81,22 +81,7 @@ dap_autocmds = function(plugin, opts) end
 
 -- conform
 
-conform_autocmds = function(plugin, opts)
-	vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-		pattern = "*.tex",
-		callback = function()
-			local filepath = vim.fn.expand("%:p")
-			local pos = (vim.api.nvim_win_get_cursor(0))
-			vim.schedule(function()
-				vim.cmd("bd")
-				os.execute("latexindent -g /dev/null -s " .. filepath .. " -o " .. filepath)
-				vim.cmd("bd")
-				vim.cmd("e " .. filepath)
-				vim.api.nvim_win_set_cursor(0, pos)
-			end)
-		end,
-	})
-end
+conform_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 
