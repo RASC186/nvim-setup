@@ -95,7 +95,7 @@ readarray -t endpoints 	< \
 
 latest_version="$(echo "${endpoints[0]}" | grep -oP '(?<=tag/)v[\d\.]+')"
 
-if [[ -z ${endpoints} ]] ; then
+if [[ -z ${endpoints[*]} ]] ; then
   echo -e "\033[0;31mLatest version not found.\033[0m"
   exit 
 else
