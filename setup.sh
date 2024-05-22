@@ -21,7 +21,7 @@ sudo apt upgrade -y
 
 echo -e "\n\033[32mInstalling Neovim dependencies\033[0m\n"
 
-sudo apt install -y snap git curl unzip luarocks npm cargo golang gdb ripgrep
+sudo apt install -y snap git curl unzip luarocks npm cargo golang gdb ripgrep bear yarn
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
