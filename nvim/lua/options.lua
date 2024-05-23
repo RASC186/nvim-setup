@@ -405,6 +405,8 @@ nvim_treesitter_opts = function(plugin, opts)
 	}
 	opts.sync_install = true
 	opts.auto_install = false
+	opts.highlight = { enable = true }
+	opts.indent = { enable = true }
 end
 
 --------------------------------------------------------------------------------
