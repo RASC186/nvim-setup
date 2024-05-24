@@ -195,7 +195,7 @@ dap_python_keymaps = function(_, _) end
 conform_keymaps = function(plugin, opts)
 	local conform = require(plugin.main)
 	vim.keymap.set({ "n", "v" }, "=", function()
-		conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+		conform.format({ lsp_fallback = true, async = true })
 	end, { desc = "Format file" })
 end
 

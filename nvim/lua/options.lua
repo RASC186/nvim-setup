@@ -249,13 +249,14 @@ conform_opts = function(plugin, opts)
 	opts.formatters_by_ft = {
 		assembly = { "asmfmt" },
 		bahs = { "beautysh" },
+		bib = { "bibtex-tidy" },
 		c = { "clang-format" },
 		cmake = { "cmakelang" },
 		cpp = { "clang-format" },
 		java = { "google-java-format" },
 		javascript = { "prettier" },
 		json = { "fixjson" },
-		latex = { "latexindent" },
+		tex = { "latexindent" },
 		lua = { "stylua" },
 		markdown = { "mdformat" },
 		python = { "black" },
@@ -267,6 +268,13 @@ conform_opts = function(plugin, opts)
 		lsp_fallback = true,
 		async = false,
 		timeout_ms = 500,
+	}
+	opts.formatters = {
+		latexindent = {
+			command = "latexindent",
+			prepend_args = { "-" },
+			stdin = true,
+		},
 	}
 end
 
