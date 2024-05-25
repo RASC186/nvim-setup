@@ -6,6 +6,17 @@ require("autocmds")
 
 --------------------------------------------------------------------------------
 
+-- chatgpt
+
+chat_gpt_config = function(plugin, opts)
+	chat_gpt_keymaps(plugin, opts)
+	require("chatgpt").setup({
+		api_key_cmd = "echo <Insert here your key>",
+	})
+end
+
+--------------------------------------------------------------------------------
+
 -- Comment
 
 comment_config = function(plugin, opts)

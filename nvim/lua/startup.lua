@@ -1,6 +1,36 @@
 ---@diagnostic disable: lowercase-global
 --------------------------------------------------------------------------------
 
+-- chatgpt
+
+chat_gpt_main = "chatgpt"
+
+chat_gpt_tag = nil
+
+chat_gpt_url = "https://github.com/jackMort/ChatGPT.nvim"
+
+chat_gpt_dependencies = {
+	"https://github.com/MunifTanjim/nui.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/folke/trouble.nvim",
+	"https://github.com/nvim-telescope/telescope.nvim",
+}
+
+chat_gpt_lazy = false
+
+chat_gpt_cmd = {
+	"ChatGPT",
+	"ChatGPTActAs",
+	"ChatGPTEditWithInstructions",
+	"ChatGPTRun",
+}
+
+chat_gpt_events = "VeryLazy"
+
+chat_gpt_priority = 1
+
+--------------------------------------------------------------------------------
+
 -- Comment
 
 comment_main = "Comment"

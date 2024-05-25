@@ -4,6 +4,21 @@ require("config")
 
 --------------------------------------------------------------------------------
 
+local chat_gpt = {
+	main = chat_gpt_main,
+	tag = chat_gpt_tag,
+	url = chat_gpt_url,
+	dependencies = chat_gpt_dependencies,
+	lazy = chat_gpt_lazy,
+	cmd = chat_gpt_cmd,
+	events = chat_gpt_events,
+	priority = chat_gpt_priority,
+	opts = chat_gpt_opts,
+	config = chat_gpt_config,
+}
+
+--------------------------------------------------------------------------------
+
 local comment = {
 	main = comment_main,
 	tag = comment_tag,
@@ -561,6 +576,7 @@ local opts = {
 
 require("lazy").setup({
 	neoconf,
+	chat_gpt,
 	comment,
 	nvim_autopairs,
 	vim_pencil,
