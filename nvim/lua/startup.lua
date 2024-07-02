@@ -1,36 +1,6 @@
 ---@diagnostic disable: lowercase-global
 --------------------------------------------------------------------------------
 
--- chatgpt
-
-chat_gpt_main = "chatgpt"
-
-chat_gpt_tag = nil
-
-chat_gpt_url = "https://github.com/jackMort/ChatGPT.nvim"
-
-chat_gpt_dependencies = {
-	"https://github.com/MunifTanjim/nui.nvim",
-	"https://github.com/nvim-lua/plenary.nvim",
-	"https://github.com/folke/trouble.nvim",
-	"https://github.com/nvim-telescope/telescope.nvim",
-}
-
-chat_gpt_lazy = false
-
-chat_gpt_cmd = {
-	"ChatGPT",
-	"ChatGPTActAs",
-	"ChatGPTEditWithInstructions",
-	"ChatGPTRun",
-}
-
-chat_gpt_events = "VeryLazy"
-
-chat_gpt_priority = 1
-
---------------------------------------------------------------------------------
-
 -- Comment
 
 comment_main = "Comment"
@@ -84,15 +54,15 @@ vim_pencil_dependencies = nil
 vim_pencil_lazy = false
 
 vim_pencil_cmd = {
-	"Pencil",
-	"NoPencil",
-	"PencilOff",
-	"TogglePencil",
-	"PencilToggle",
-	"SoftPencil",
-	"PencilSoft",
-	"HardPencil",
-	"PencilHard",
+  "Pencil",
+  "NoPencil",
+  "PencilOff",
+  "TogglePencil",
+  "PencilToggle",
+  "SoftPencil",
+  "PencilSoft",
+  "HardPencil",
+  "PencilHard",
 }
 
 vim_pencil_events = nil
@@ -116,7 +86,7 @@ luasnip_lazy = true
 luasnip_cmd = nil
 
 luasnip_events = {
-	"InsertEnter",
+  "InsertEnter",
 }
 
 luasnip_priority = 2
@@ -176,9 +146,9 @@ markdown_preview_dependencies = nil
 markdown_preview_lazy = false
 
 markdown_preview_cmd = {
-	"MarkdownPreviewToggle",
-	"MarkdownPreview",
-	"MarkdownPreviewStop",
+  "MarkdownPreviewToggle",
+  "MarkdownPreview",
+  "MarkdownPreviewStop",
 }
 
 markdown_preview_events = nil
@@ -196,14 +166,14 @@ nvim_cmp_tag = nil
 nvim_cmp_url = "https://github.com/hrsh7th/nvim-cmp"
 
 nvim_cmp_dependencies = {
-	"https://github.com/hrsh7th/cmp-nvim-lsp",
-	"https://github.com/hrsh7th/cmp-buffer",
-	"https://github.com/hrsh7th/cmp-path",
-	"https://github.com/micangl/cmp-vimtex",
-	"https://github.com/hrsh7th/cmp-cmdline",
-	"https://github.com/L3MON4D3/LuaSnip",
-	"https://github.com/saadparwaiz1/cmp_luasnip",
-	"https://github.com/rafamadriz/friendly-snippets",
+  "https://github.com/hrsh7th/cmp-nvim-lsp",
+  "https://github.com/hrsh7th/cmp-buffer",
+  "https://github.com/hrsh7th/cmp-path",
+  "https://github.com/micangl/cmp-vimtex",
+  "https://github.com/hrsh7th/cmp-cmdline",
+  "https://github.com/L3MON4D3/LuaSnip",
+  "https://github.com/saadparwaiz1/cmp_luasnip",
+  "https://github.com/rafamadriz/friendly-snippets",
 }
 
 nvim_cmp_lazy = false
@@ -211,7 +181,7 @@ nvim_cmp_lazy = false
 nvim_cmp_cmd = nil
 
 nvim_cmp_events = {
-	"InsertEnter",
+  "InsertEnter",
 }
 
 nvim_cmp_priority = 1
@@ -231,13 +201,13 @@ nvim_dap_virtual_text_dependencies = nil
 nvim_dap_virtual_text_lazy = false
 
 nvim_dap_virtual_text_cmd = {
-	"DapVirtualTextEnable",
-	"DapVirtualTextDisable",
-	"DapVirtualTextToggle",
+  "DapVirtualTextEnable",
+  "DapVirtualTextDisable",
+  "DapVirtualTextToggle",
 }
 
 nvim_dap_virtual_text_events = {
-	"VeryLazy",
+  "VeryLazy",
 }
 
 nvim_dap_virtual_text_priority = 1
@@ -253,19 +223,19 @@ dapui_tag = nil
 dapui_url = "https://github.com/rcarriga/nvim-dap-ui"
 
 dapui_dependencies = {
-	"https://github.com/mfussenegger/nvim-dap",
-	"https://github.com/nvim-neotest/nvim-nio",
-	"https://github.com/theHamsta/nvim-dap-virtual-text",
+  "https://github.com/mfussenegger/nvim-dap",
+  "https://github.com/nvim-neotest/nvim-nio",
+  "https://github.com/theHamsta/nvim-dap-virtual-text",
 }
 
 dapui_lazy = false
 
 dapui_cmd = {
-	"DapUiToggle",
+  "DapUiToggle",
 }
 
 dapui_events = {
-	"VeryLazy",
+  "VeryLazy",
 }
 
 dapui_priority = 1
@@ -301,7 +271,7 @@ lldebugger_tag = nil
 lldebugger_url = "https://github.com/tomblind/local-lua-debugger-vscode"
 
 lldebugger_dependencies = {
-	"https://github.com/rcarriga/nvim-dap-ui",
+  "https://github.com/rcarriga/nvim-dap-ui",
 }
 
 lldebugger_lazy = false
@@ -323,8 +293,8 @@ dap_python_tag = nil
 dap_python_url = "https://github.com/mfussenegger/nvim-dap-python"
 
 dap_python_dependencies = {
-	"https://github.com/rcarriga/nvim-dap-ui",
-	"https://github.com/mfussenegger/nvim-dap",
+  "https://github.com/rcarriga/nvim-dap-ui",
+  "https://github.com/mfussenegger/nvim-dap",
 }
 
 dap_python_lazy = false
@@ -352,8 +322,8 @@ conform_lazy = false
 conform_cmd = nil
 
 conform_events = {
-	"BufReadPre",
-	"BufNewFile",
+  "BufReadPre",
+  "BufNewFile",
 }
 
 conform_priority = 1
@@ -373,7 +343,7 @@ gitsigns_dependencies = nil
 gitsigns_lazy = false
 
 gitsigns_cmd = {
-	"Gitsigns",
+  "Gitsigns",
 }
 
 gitsigns_events = nil
@@ -397,8 +367,8 @@ nvim_lint_lazy = true
 nvim_lint_cmd = nil
 
 nvim_lint_events = {
-	"BufReadPre",
-	"BufNewFile",
+  "BufReadPre",
+  "BufNewFile",
 }
 
 nvim_lint_priority = 1
@@ -414,22 +384,22 @@ lspconfig_tag = nil
 lspconfig_url = "https://github.com/neovim/nvim-lspconfig"
 
 lspconfig_dependencies = {
-	"https://github.com/hrsh7th/cmp-nvim-lsp",
-	{ "https://github.com/antosha417/nvim-lsp-file-operations", config = true },
+  "https://github.com/hrsh7th/cmp-nvim-lsp",
+  { "https://github.com/antosha417/nvim-lsp-file-operations", config = true },
 }
 
 lspconfig_lazy = false
 
 lspconfig_cmd = {
-	"LspInfo",
-	"LspStart",
-	"LspStop",
-	"LspRestart",
+  "LspInfo",
+  "LspStart",
+  "LspStop",
+  "LspRestart",
 }
 
 lspconfig_events = {
-	"BufReadPre",
-	"BufNewFile",
+  "BufReadPre",
+  "BufNewFile",
 }
 
 lspconfig_priority = 1
@@ -445,7 +415,7 @@ lspsaga_tag = nil
 lspsaga_url = "https://github.com/nvimdev/lspsaga.nvim"
 
 lspsaga_dependencies = {
-	"nvim-treesitter/nvim-treesitter",
+  "nvim-treesitter/nvim-treesitter",
 }
 
 lspsaga_lazy = false
@@ -487,15 +457,15 @@ mason_nvim_dap_tag = nil
 mason_nvim_dap_url = "https://github.com/jay-babu/mason-nvim-dap.nvim"
 
 mason_nvim_dap_dependencies = {
-	"williamboman/mason.nvim",
-	"mfussenegger/nvim-dap",
+  "williamboman/mason.nvim",
+  "mfussenegger/nvim-dap",
 }
 
 mason_nvim_dap_lazy = true
 
 mason_nvim_dap_cmd = {
-	"DapInstall",
-	"DapUninstall",
+  "DapInstall",
+  "DapUninstall",
 }
 
 mason_nvim_dap_events = nil
@@ -513,13 +483,13 @@ mason_tag = nil
 mason_url = "https://github.com/williamboman/mason.nvim"
 
 mason_dependencies = {
-	"https://github.com/williamboman/mason-lspconfig.nvim",
+  "https://github.com/williamboman/mason-lspconfig.nvim",
 }
 
 mason_lazy = true
 
 mason_cmd = {
-	"Mason",
+  "Mason",
 }
 
 mason_events = nil
@@ -541,21 +511,21 @@ nvim_treesitter_dependencies = nil
 nvim_treesitter_lazy = false
 
 nvim_treesitter_cmd = {
-	"TSInstall",
-	"TSInstallSync",
-	"TSInstallInfo",
-	"TSUpdate",
-	"TSUpdateSync",
-	"TSUninstall",
-	"TSBufEnable",
-	"TSBufDisable",
-	"TSBufToggle",
-	"TSEnable",
-	"TSDisable",
-	"TSToggle",
-	"TSModuleInfo",
-	"TSEditQuery",
-	"TSEditQueryUserAfter",
+  "TSInstall",
+  "TSInstallSync",
+  "TSInstallInfo",
+  "TSUpdate",
+  "TSUpdateSync",
+  "TSUninstall",
+  "TSBufEnable",
+  "TSBufDisable",
+  "TSBufToggle",
+  "TSEnable",
+  "TSDisable",
+  "TSToggle",
+  "TSModuleInfo",
+  "TSEditQuery",
+  "TSEditQueryUserAfter",
 }
 
 nvim_treesitter_events = nil
@@ -577,12 +547,12 @@ illuminate_dependencies = nil
 illuminate_lazy = false
 
 illuminate_cmd = {
-	"IlluminatePause",
-	"IlluminateResume",
-	"IlluminateToggle",
-	"IlluminatePauseBuf",
-	"IlluminateResumeBuf",
-	"IlluminateToggleBuf",
+  "IlluminatePause",
+  "IlluminateResume",
+  "IlluminateToggle",
+  "IlluminatePauseBuf",
+  "IlluminateResumeBuf",
+  "IlluminateToggleBuf",
 }
 
 illuminate_events = nil
@@ -600,42 +570,18 @@ telescope_tag = "0.1.6"
 telescope_url = "https://github.com/nvim-telescope/telescope.nvim"
 
 telescope_dependencies = {
-	"nvim-lua/plenary.nvim",
+  "nvim-lua/plenary.nvim",
 }
 
 telescope_lazy = false
 
 telescope_cmd = {
-	"Telescope",
+  "Telescope",
 }
 
 telescope_events = nil
 
 telescope_priority = 1
-
---------------------------------------------------------------------------------
-
--- twilight
-
-twilight_main = "twilight"
-
-twilight_tag = nil
-
-twilight_url = "https://github.com/folke/twilight.nvim"
-
-twilight_dependencies = nil
-
-twilight_lazy = false
-
-twilight_cmd = {
-	"Twilight",
-	"TwilightEnable",
-	"TwilightDisable",
-}
-
-twilight_events = nil
-
-twilight_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -652,7 +598,7 @@ zen_mode_dependencies = nil
 zen_mode_lazy = false
 
 zen_mode_cmd = {
-	"ZenMode",
+  "ZenMode",
 }
 
 zen_mode_events = nil
@@ -774,7 +720,7 @@ neoconf_dependencies = nil
 neoconf_lazy = false
 
 neoconf_cmd = {
-	"Neoconf",
+  "Neoconf",
 }
 
 neoconf_events = nil

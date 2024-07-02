@@ -16,23 +16,23 @@ nvim_autopairs_autocmds = function(plugin, opts) end
 -- Pencil
 
 vim_pencil_autocmds = function(plugin, opts)
-	local pencil_augroup = vim.api.nvim_create_augroup("pencil", { clear = true })
+  local pencil_augroup = vim.api.nvim_create_augroup("pencil", { clear = true })
 
-	vim.api.nvim_create_autocmd({ "FileType" }, {
-		pattern = { "markdown", "bib" },
-		group = pencil_augroup,
-		callback = function()
-			vim.cmd("SoftPencil")
-		end,
-	})
+  vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "markdown", "bib" },
+    group = pencil_augroup,
+    callback = function()
+      vim.cmd("SoftPencil")
+    end,
+  })
 
-	vim.api.nvim_create_autocmd({ "FileType" }, {
-		pattern = { "tex", "text" },
-		group = pencil_augroup,
-		callback = function()
-			vim.cmd("HardPencil")
-		end,
-	})
+  vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "tex", "text" },
+    group = pencil_augroup,
+    callback = function()
+      vim.cmd("HardPencil")
+    end,
+  })
 end
 
 --------------------------------------------------------------------------------
@@ -94,15 +94,15 @@ gitsigns_autocmds = function(plugin, opts) end
 -- nvim-lint
 
 nvim_lint_autocmds = function(plugin, opts)
-	local lint = require(plugin.main)
-	local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+  local lint = require(plugin.main)
+  local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-	vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-		group = lint_augroup,
-		callback = function()
-			lint.try_lint()
-		end,
-	})
+  vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+    group = lint_augroup,
+    callback = function()
+      lint.try_lint()
+    end,
+  })
 end
 
 --------------------------------------------------------------------------------
@@ -134,12 +134,12 @@ mason_autocmds = function(plugin, opts) end
 -- nvim-treesitter
 
 nvim_treesitter_autocmds = function(plugin, opts)
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "tex",
-		callback = function(args)
-			vim.treesitter.start(args.buf, "latex")
-		end,
-	})
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "tex",
+    callback = function(args)
+      vim.treesitter.start(args.buf, "latex")
+    end,
+  })
 end
 
 --------------------------------------------------------------------------------
@@ -153,12 +153,6 @@ illuminate_autocmds = function(plugin, opts) end
 -- telescope
 
 telescope_autocmds = function(plugin, opts) end
-
---------------------------------------------------------------------------------
-
--- twilight
-
-twilight_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 

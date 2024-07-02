@@ -34,56 +34,50 @@ vim.keymap.set("n", "r", ":redo<CR>")
 
 --------------------------------------------------------------------------------
 
--- chatgpt
-
-chat_gpt_keymaps = function(_, _) end
-
---------------------------------------------------------------------------------
-
 -- Comment
 
 comment_keymaps = function(plugin, opts)
-	opts.toggler = {
+  opts.toggler = {
 
-		---Line-comment toggle keymap
-		line = "gcc",
+    ---Line-comment toggle keymap
+    line = "gcc",
 
-		---Block-comment toggle keymap
-		block = "gbc",
-	}
+    ---Block-comment toggle keymap
+    block = "gbc",
+  }
 
-	opts.opleader = {
+  opts.opleader = {
 
-		---Line-comment keymap
-		line = "gc",
+    ---Line-comment keymap
+    line = "gc",
 
-		---Block-comment keymap
-		block = "gb",
-	}
+    ---Block-comment keymap
+    block = "gb",
+  }
 
-	opts.extra = {
+  opts.extra = {
 
-		---Add comment on the line above
-		above = "gcO",
+    ---Add comment on the line above
+    above = "gcO",
 
-		---Add comment on the line below
-		below = "gco",
+    ---Add comment on the line below
+    below = "gco",
 
-		---Add comment at the end of line
-		eol = "gcA",
-	}
+    ---Add comment at the end of line
+    eol = "gcA",
+  }
 
-	opts.mappings = {
+  opts.mappings = {
 
-		basic = true,
+    basic = true,
 
-		opleader = false,
+    opleader = false,
 
-		extra = false,
-	}
+    extra = false,
+  }
 
-	vim.api.nvim_set_keymap("n", "<C-_>", "gcc<ESC>", { silent = true })
-	vim.api.nvim_set_keymap("v", "<C-_>", "gcc<ESC>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<C-_>", "gcc<ESC>", { silent = true })
+  vim.api.nvim_set_keymap("v", "<C-_>", "gcc<ESC>", { silent = true })
 end
 
 --------------------------------------------------------------------------------
@@ -97,8 +91,8 @@ nvim_autopairs_keymaps = function(_, _) end
 -- Pencil
 
 vim_pencil_keymaps = function(_, _)
-	vim.api.nvim_set_keymap("n", "<leader>p", "gqap<ESC>", { silent = true })
-	vim.api.nvim_set_keymap("n", "<leader>P", "ggVGgq<ESC>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<leader>p", "gqap<ESC>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<leader>P", "ggVGgq<ESC>", { silent = true })
 end
 
 --------------------------------------------------------------------------------
@@ -106,12 +100,12 @@ end
 -- luasnip
 
 luasnip_keymaps = function(plugin, _)
-	local luasnip = require(plugin.main)
-	vim.keymap.set("i", "<C-l>", function()
-		if luasnip.choice_active() then
-			luasnip.change_choice(1)
-		end
-	end, { silent = true })
+  local luasnip = require(plugin.main)
+  vim.keymap.set("i", "<C-l>", function()
+    if luasnip.choice_active() then
+      luasnip.change_choice(1)
+    end
+  end, { silent = true })
 end
 
 --------------------------------------------------------------------------------
@@ -137,15 +131,15 @@ markdown_preview_keymaps = function(_, _) end
 -- nvim-cmp
 
 nvim_cmp_keymaps = function(plugin, opts)
-	local cmp = require(plugin.main)
-	opts.mapping = cmp.mapping.preset.insert({
-		["<Down>"] = cmp.mapping.select_next_item(),
-		["<Up>"] = cmp.mapping.select_prev_item(),
-		["<S-Up>"] = cmp.mapping.scroll_docs(-4),
-		["<S-Down>"] = cmp.mapping.scroll_docs(4),
-		["<Esc>"] = cmp.mapping.abort(),
-		["<Tab>"] = cmp.mapping.confirm({ select = true }),
-	})
+  local cmp = require(plugin.main)
+  opts.mapping = cmp.mapping.preset.insert({
+    ["<Down>"] = cmp.mapping.select_next_item(),
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<S-Up>"] = cmp.mapping.scroll_docs(-4),
+    ["<S-Down>"] = cmp.mapping.scroll_docs(4),
+    ["<Esc>"] = cmp.mapping.abort(),
+    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+  })
 end
 
 --------------------------------------------------------------------------------
@@ -159,10 +153,10 @@ nvim_dap_virtual_text_keymaps = function(_, _) end
 -- dapui
 
 dapui_keymaps = function(plugin, _)
-	local dapui = require(plugin.main)
-	vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset=true})<CR><ESC>", {})
-	vim.api.nvim_set_keymap("n", "<leader>dt", ":lua require('dapui').toggle({reset=true})<CR><ESC>", {})
-	vim.api.nvim_set_keymap("n", "<leader>dq", ":lua require('dapui').close()<CR><ESC>", {})
+  local dapui = require(plugin.main)
+  vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset=true})<CR><ESC>", {})
+  vim.api.nvim_set_keymap("n", "<leader>dt", ":lua require('dapui').toggle({reset=true})<CR><ESC>", {})
+  vim.api.nvim_set_keymap("n", "<leader>dq", ":lua require('dapui').close()<CR><ESC>", {})
 end
 
 --------------------------------------------------------------------------------
@@ -170,16 +164,16 @@ end
 -- dap
 
 dap_keymaps = function(plugin, _)
-	local dap = require(plugin.main)
-	vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
-	vim.keymap.set("n", "<leader>dc", dap.continue)
-	vim.keymap.set("n", "<leader>dn", dap.step_over)
-	vim.keymap.set("n", "<leader>di", dap.step_into)
-	vim.keymap.set("n", "<leader>dp", dap.step_back)
-	vim.keymap.set("n", "<leader>dd", function()
-		dap.disconnect()
-		dap.close()
-	end, {})
+  local dap = require(plugin.main)
+  vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
+  vim.keymap.set("n", "<leader>dc", dap.continue)
+  vim.keymap.set("n", "<leader>dn", dap.step_over)
+  vim.keymap.set("n", "<leader>di", dap.step_into)
+  vim.keymap.set("n", "<leader>dp", dap.step_back)
+  vim.keymap.set("n", "<leader>dd", function()
+    dap.disconnect()
+    dap.close()
+  end, {})
 end
 
 --------------------------------------------------------------------------------
@@ -199,10 +193,10 @@ dap_python_keymaps = function(_, _) end
 -- conform
 
 conform_keymaps = function(plugin, opts)
-	local conform = require(plugin.main)
-	vim.keymap.set({ "n", "v" }, "=", function()
-		conform.format({ lsp_fallback = true, async = true })
-	end, { desc = "Format file" })
+  local conform = require(plugin.main)
+  vim.keymap.set({ "n", "v" }, "=", function()
+    conform.format({ lsp_fallback = true, async = true })
+  end, { desc = "Format file" })
 end
 
 --------------------------------------------------------------------------------
@@ -210,12 +204,12 @@ end
 -- Git
 
 gitsigns_keymaps = function(_, _)
-	vim.keymap.set("n", "<leader>gs", ":Gitsigns toggle_signs<CR><ESC>")
-	vim.keymap.set("n", "<leader>gn", ":Gitsigns toggle_numhl<CR><ESC>")
-	vim.keymap.set("n", "<leader>gl", ":Gitsigns toggle_linehl<CR><ESC>")
-	vim.keymap.set("n", "<leader>gd", ":Gitsigns toggle_word_diff<CR><Esc>")
-	vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk_inline<CR><Esc>")
-	vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR><Esc>")
+  vim.keymap.set("n", "<leader>gs", ":Gitsigns toggle_signs<CR><ESC>")
+  vim.keymap.set("n", "<leader>gn", ":Gitsigns toggle_numhl<CR><ESC>")
+  vim.keymap.set("n", "<leader>gl", ":Gitsigns toggle_linehl<CR><ESC>")
+  vim.keymap.set("n", "<leader>gd", ":Gitsigns toggle_word_diff<CR><Esc>")
+  vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk_inline<CR><Esc>")
+  vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR><Esc>")
 end
 
 --------------------------------------------------------------------------------
@@ -223,10 +217,10 @@ end
 -- nvim-lint
 
 nvim_lint_keymaps = function(plugin, opts)
-	local lint = require(plugin.main)
-	vim.keymap.set("n", "<leader>l", function()
-		lint.try_lint()
-	end, { desc = "Trigger linting for current file" })
+  local lint = require(plugin.main)
+  vim.keymap.set("n", "<leader>l", function()
+    lint.try_lint()
+  end, { desc = "Trigger linting for current file" })
 end
 
 --------------------------------------------------------------------------------
@@ -257,30 +251,30 @@ mason_nvim_dap_keymaps = function(_, _) end
 -- mason
 
 mason_keymaps = function(plugin, opts)
-	opts.ui.keymaps = {
+  opts.ui.keymaps = {
 
-		toggle_package_expand = "<CR>",
+    toggle_package_expand = "<CR>",
 
-		install_package = "i",
+    install_package = "i",
 
-		update_package = "u",
+    update_package = "u",
 
-		check_package_version = "c",
+    check_package_version = "c",
 
-		update_all_packages = "U",
+    update_all_packages = "U",
 
-		check_outdated_packages = "C",
+    check_outdated_packages = "C",
 
-		uninstall_package = "X",
+    uninstall_package = "X",
 
-		cancel_installation = "<C-c>",
+    cancel_installation = "<C-c>",
 
-		apply_language_filter = "<C-f>",
+    apply_language_filter = "<C-f>",
 
-		toggle_package_install_log = "<CR>",
+    toggle_package_install_log = "<CR>",
 
-		toggle_help = "g?",
-	}
+    toggle_help = "g?",
+  }
 end
 
 --------------------------------------------------------------------------------
@@ -288,35 +282,35 @@ end
 -- nvim-treesitter
 
 nvim_treesitter_keymaps = function(plugin, opts)
-	local slow_scroll = function(prompt_bufnr, direction)
-		local state = require("telescope.state")
-		local action_state = require("telescope.actions.state")
+  local slow_scroll = function(prompt_bufnr, direction)
+    local state = require("telescope.state")
+    local action_state = require("telescope.actions.state")
 
-		local previewer = action_state.get_current_picker(prompt_bufnr).previewer
+    local previewer = action_state.get_current_picker(prompt_bufnr).previewer
 
-		local status = state.get_status(prompt_bufnr)
+    local status = state.get_status(prompt_bufnr)
 
-		if type(previewer) ~= "table" or previewer.scroll_fn == function(_, _) end or status.preview_win == nil then
-			return
-		end
+    if type(previewer) ~= "table" or previewer.scroll_fn == function(_, _) end or status.preview_win == nil then
+      return
+    end
 
-		previewer:scroll_fn(1 * direction)
-	end
+    previewer:scroll_fn(1 * direction)
+  end
 
-	opts.defaults = {
+  opts.defaults = {
 
-		mappings = {
+    mappings = {
 
-			i = {
-				["<S-Up>"] = function(bufnr)
-					slow_scroll(bufnr, -1)
-				end,
-				["<S-Down>"] = function(bufnr)
-					slow_scroll(bufnr, 1)
-				end,
-			},
-		},
-	}
+      i = {
+        ["<S-Up>"] = function(bufnr)
+          slow_scroll(bufnr, -1)
+        end,
+        ["<S-Down>"] = function(bufnr)
+          slow_scroll(bufnr, 1)
+        end,
+      },
+    },
+  }
 end
 
 --------------------------------------------------------------------------------
@@ -324,8 +318,8 @@ end
 -- illuminate
 
 illuminate_keymaps = function(plugin, opts)
-	vim.api.nvim_set_keymap("n", "<A-Left>", "<A-p>", { silent = true })
-	vim.api.nvim_set_keymap("n", "<A-Right>", "<A-n>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<A-Left>", "<A-p>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<A-Right>", "<A-n>", { silent = true })
 end
 
 --------------------------------------------------------------------------------
@@ -333,26 +327,20 @@ end
 -- telescope
 
 telescope_keymaps = function(plugin, opts)
-	vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<CR>", {})
-	vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", {})
-	vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", {})
-	vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", {})
-	vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", {})
-	vim.keymap.set("n", "<leader>fr", ":Telescope lsp_references<CR>", {})
+  vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<CR>", {})
+  vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", {})
+  vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", {})
+  vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", {})
+  vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", {})
+  vim.keymap.set("n", "<leader>fr", ":Telescope lsp_references<CR>", {})
 end
-
---------------------------------------------------------------------------------
-
--- twilight
-
-twilight_keymaps = function(_, _) end
 
 --------------------------------------------------------------------------------
 
 -- zen-mode
 
 zen_mode_keymaps = function(_, _)
-	vim.keymap.set("n", "<leader>Z", ":ZenMode<CR><ESC>")
+  vim.keymap.set("n", "<leader>Z", ":ZenMode<CR><ESC>")
 end
 
 --------------------------------------------------------------------------------
@@ -372,7 +360,7 @@ lualine_keymaps = function(_, _) end
 -- nvim-tree
 
 nvim_tree_keymaps = function(plugin, opts)
-	vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { noremap = true })
+  vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { noremap = true })
 end
 
 --------------------------------------------------------------------------------

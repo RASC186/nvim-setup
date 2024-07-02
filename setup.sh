@@ -21,11 +21,13 @@ sudo apt upgrade -y
 
 echo -e "\n\033[32mInstalling Neovim dependencies\033[0m\n"
 
-sudo apt install -y snap git curl unzip luarocks npm cargo golang gdb ripgrep bear yarn
+sudo apt install -y snap snapd git curl unzip luarocks npm golang gdb ripgrep bear yarn
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+sudo curl https://sh.rustup.rs -sSf | sh
 
-nvm install 20
+sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+sudo nvm install 20
 
 readarray -t lua_versions < \
   <(apt list lua* | grep -oP "lua[\d\.]+(?=/)" | sort -r)
@@ -41,6 +43,8 @@ sudo apt install -y "${python_versions[0]}"
 sudo apt install -y "${python_venv_versions[0]}"
 
 ##Refresh Snap
+
+PATH=$PATH:/snap/bin/
 
 echo -e "\n\033[32mRefreshing Snap\033[0m\n"
 
