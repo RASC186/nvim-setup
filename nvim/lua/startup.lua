@@ -5,7 +5,7 @@
 
 comment_main = "Comment"
 
-comment_tag = nil
+comment_tag = "v0.8.0"
 
 comment_url = "https://github.com/numToStr/Comment.nvim"
 
@@ -45,7 +45,7 @@ nvim_autopairs_priority = 1
 
 vim_pencil_main = nil
 
-vim_pencil_tag = nil
+vim_pencil_tag = "v1.5"
 
 vim_pencil_url = "https://github.com/preservim/vim-pencil.git"
 
@@ -137,7 +137,7 @@ vimtex_priority = 1
 
 markdown_preview_main = nil
 
-markdown_preview_tag = nil
+markdown_preview_tag = "v0.0.10"
 
 markdown_preview_url = "https://github.com/iamcco/markdown-preview.nvim"
 
@@ -218,7 +218,7 @@ nvim_dap_virtual_text_priority = 1
 
 dapui_main = "dapui"
 
-dapui_tag = nil
+dapui_tag = "v4.0.0"
 
 dapui_url = "https://github.com/rcarriga/nvim-dap-ui"
 
@@ -246,7 +246,7 @@ dapui_priority = 1
 
 dap_main = "dap"
 
-dap_tag = nil
+dap_tag = "0.8.0"
 
 dap_url = "https://github.com/mfussenegger/nvim-dap"
 
@@ -266,7 +266,7 @@ dap_priority = 1
 
 lldebugger_main = "lldebugger"
 
-lldebugger_tag = nil
+lldebugger_tag = "release-v0.3.2"
 
 lldebugger_url = "https://github.com/tomblind/local-lua-debugger-vscode"
 
@@ -311,7 +311,7 @@ dap_python_priority = 1
 
 conform_main = "conform"
 
-conform_tag = nil
+conform_tag = "v6.0.0"
 
 conform_url = "https://github.com/stevearc/conform.nvim"
 
@@ -334,7 +334,7 @@ conform_priority = 1
 
 gitsigns_main = "gitsigns"
 
-gitsigns_tag = nil
+gitsigns_tag = "v0.9.0"
 
 gitsigns_url = "https://github.com/lewis6991/gitsigns.nvim"
 
@@ -379,7 +379,7 @@ nvim_lint_priority = 1
 
 lspconfig_main = "lspconfig"
 
-lspconfig_tag = nil
+lspconfig_tag = "v0.1.7"
 
 lspconfig_url = "https://github.com/neovim/nvim-lspconfig"
 
@@ -432,7 +432,7 @@ lspsaga_priority = 1
 
 mason_lspconfig_main = "mason-lspconfig"
 
-mason_lspconfig_tag = nil
+mason_lspconfig_tag = "v1.29.0"
 
 mason_lspconfig_url = "https://github.com/williamboman/mason-lspconfig.nvim"
 
@@ -452,7 +452,7 @@ mason_lspconfig_priority = 2
 
 mason_nvim_dap_main = "mason-nvim-dap"
 
-mason_nvim_dap_tag = nil
+mason_nvim_dap_tag = "v2.3.1"
 
 mason_nvim_dap_url = "https://github.com/jay-babu/mason-nvim-dap.nvim"
 
@@ -478,7 +478,7 @@ mason_nvim_dap_priority = 1
 
 mason_main = "mason"
 
-mason_tag = nil
+mason_tag = "v1.10.0"
 
 mason_url = "https://github.com/williamboman/mason.nvim"
 
@@ -502,7 +502,7 @@ mason_priority = 2
 
 nvim_treesitter_main = "nvim-treesitter"
 
-nvim_treesitter_tag = nil
+nvim_treesitter_tag = "v0.9.2"
 
 nvim_treesitter_url = "https://github.com/nvim-treesitter/nvim-treesitter"
 
@@ -565,7 +565,7 @@ illuminate_priority = 1
 
 telescope_main = "telescope"
 
-telescope_tag = "0.1.6"
+telescope_tag = "0.1.8"
 
 telescope_url = "https://github.com/nvim-telescope/telescope.nvim"
 
@@ -589,7 +589,7 @@ telescope_priority = 1
 
 zen_mode_main = "zen-mode"
 
-zen_mode_tag = nil
+zen_mode_tag = "v1.3.0"
 
 zen_mode_url = "https://github.com/folke/zen-mode.nvim"
 
@@ -651,7 +651,7 @@ lualine_priority = 1
 
 nvim_tree_main = "nvim-tree"
 
-nvim_tree_tag = nil
+nvim_tree_tag = "v1.4.0"
 
 nvim_tree_url = "https://github.com/nvim-tree/nvim-tree.lua.git"
 
@@ -671,7 +671,7 @@ nvim_tree_priority = 1
 
 nvim_web_devicons_main = "nvim-web-devicons"
 
-nvim_web_devicons_tag = nil
+nvim_web_devicons_tag = "v0.100"
 
 nvim_web_devicons_url = "https://github.com/nvim-tree/nvim-web-devicons"
 
@@ -691,7 +691,7 @@ nvim_web_devicons_priority = 1
 
 tokyonight_main = "tokyonight"
 
-tokyonight_tag = nil
+tokyonight_tag = "v4.1.1"
 
 tokyonight_url = "https://github.com/folke/tokyonight.nvim"
 
@@ -711,7 +711,7 @@ tokyonight_priority = 2
 
 neoconf_main = "neoconf"
 
-neoconf_tag = nil
+neoconf_tag = "v1.2.2"
 
 neoconf_url = "https://github.com/folke/neoconf.nvim"
 
@@ -733,7 +733,7 @@ neoconf_priority = 3
 
 neodev_main = "neodev"
 
-neodev_tag = nil
+neodev_tag = "v3.0.0"
 
 neodev_url = "https://github.com/folke/neodev.nvim"
 
@@ -753,7 +753,7 @@ neodev_priority = 1
 
 plenary_main = "plenary"
 
-plenary_tag = nil
+plenary_tag = "v0.1.4"
 
 plenary_url = "https://github.com/nvim-lua/plenary.nvim"
 
