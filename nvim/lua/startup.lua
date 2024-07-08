@@ -461,7 +461,7 @@ mason_nvim_dap_dependencies = {
   "mfussenegger/nvim-dap",
 }
 
-mason_nvim_dap_lazy = true
+mason_nvim_dap_lazy = false
 
 mason_nvim_dap_cmd = {
   "DapInstall",
