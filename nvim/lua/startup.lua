@@ -184,7 +184,7 @@ nvim_cmp_events = {
   "InsertEnter",
 }
 
-nvim_cmp_priority = 1
+nvim_cmp_priority = 2
 
 --------------------------------------------------------------------------------
 
@@ -258,7 +258,7 @@ dap_cmd = nil
 
 dap_events = nil
 
-dap_priority = 1
+dap_priority = 2
 
 --------------------------------------------------------------------------------
 
@@ -326,7 +326,7 @@ conform_events = {
   "BufNewFile",
 }
 
-conform_priority = 1
+conform_priority = 2
 
 --------------------------------------------------------------------------------
 
@@ -348,7 +348,7 @@ gitsigns_cmd = {
 
 gitsigns_events = nil
 
-gitsigns_priority = 1
+gitsigns_priority = 2
 
 --------------------------------------------------------------------------------
 
@@ -371,7 +371,7 @@ nvim_lint_events = {
   "BufNewFile",
 }
 
-nvim_lint_priority = 1
+nvim_lint_priority = 2
 
 --------------------------------------------------------------------------------
 
@@ -444,7 +444,7 @@ mason_lspconfig_cmd = nil
 
 mason_lspconfig_events = nil
 
-mason_lspconfig_priority = 2
+mason_lspconfig_priority = 1
 
 --------------------------------------------------------------------------------
 
@@ -494,7 +494,7 @@ mason_cmd = {
 
 mason_events = nil
 
-mason_priority = 2
+mason_priority = 6
 
 --------------------------------------------------------------------------------
 
@@ -530,7 +530,7 @@ nvim_treesitter_cmd = {
 
 nvim_treesitter_events = nil
 
-nvim_treesitter_priority = 2
+nvim_treesitter_priority = 3
 
 --------------------------------------------------------------------------------
 
@@ -623,7 +623,7 @@ lspkind_cmd = nil
 
 lspkind_events = nil
 
-lspkind_priority = 1
+lspkind_priority = 3
 
 --------------------------------------------------------------------------------
 
@@ -643,7 +643,7 @@ lualine_cmd = nil
 
 lualine_events = nil
 
-lualine_priority = 1
+lualine_priority = 2
 
 --------------------------------------------------------------------------------
 
@@ -663,7 +663,7 @@ nvim_tree_cmd = nil
 
 nvim_tree_events = nil
 
-nvim_tree_priority = 1
+nvim_tree_priority = 2
 
 --------------------------------------------------------------------------------
 
@@ -683,7 +683,7 @@ nvim_web_devicons_cmd = nil
 
 nvim_web_devicons_events = nil
 
-nvim_web_devicons_priority = 1
+nvim_web_devicons_priority = 2
 
 --------------------------------------------------------------------------------
 
@@ -703,7 +703,7 @@ tokyonight_cmd = nil
 
 tokyonight_events = nil
 
-tokyonight_priority = 2
+tokyonight_priority = 3
 
 --------------------------------------------------------------------------------
 
@@ -725,7 +725,7 @@ neoconf_cmd = {
 
 neoconf_events = nil
 
-neoconf_priority = 3
+neoconf_priority = 8
 
 --------------------------------------------------------------------------------
 
@@ -745,7 +745,7 @@ neodev_cmd = nil
 
 neodev_events = nil
 
-neodev_priority = 1
+neodev_priority = 5
 
 --------------------------------------------------------------------------------
 
@@ -765,6 +765,6 @@ plenary_cmd = nil
 
 plenary_events = nil
 
-plenary_priority = 1
+plenary_priority = 4
 
 --------------------------------------------------------------------------------
