@@ -141,7 +141,7 @@ end
 
 --------------------------------------------------------------------------------
 
--- nvim_dap_virtual_text
+-- nvim-dap-virtual-text
 
 nvim_dap_virtual_text_config = function(plugin, opts)
   nvim_dap_virtual_text_keymaps(plugin, opts)

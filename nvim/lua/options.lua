@@ -111,7 +111,9 @@ cmp_vimtex_opts = function(plugin, opts)
     search_engines = {
       google_scholar = {
         name = "Google Scholar",
-        get_url = require("cmp_vimtex").url_default_format("https://scholar.google.com/scholar?hl=en&q=%s"),
+        get_url = require("cmp_vimtex").url_default_format(
+          "https://scholar.google.com/scholar?hl=en&q=%s"
+        ),
       },
     },
   }
