@@ -198,7 +198,7 @@ nvim_dap_virtual_text_url = "https://github.com/theHamsta/nvim-dap-virtual-text"
 
 nvim_dap_virtual_text_dependencies = nil
 
-nvim_dap_virtual_text_lazy = false
+nvim_dap_virtual_text_lazy = true
 
 nvim_dap_virtual_text_cmd = {
   "DapVirtualTextEnable",
