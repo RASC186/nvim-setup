@@ -21,7 +21,8 @@ sudo apt upgrade -y
 
 echo -e "\n\033[32mInstalling Neovim dependencies\033[0m\n"
 
-sudo apt install -y snap snapd git curl unzip luarocks npm golang gdb ripgrep bear yarn
+sudo apt install -y snap snapd git curl unzip luarocks npm golang gdb ripgrep \
+  bear yarn latexmk default-jdk texlive-full xclip
 
 sudo curl https://sh.rustup.rs -sSf | sh
 
