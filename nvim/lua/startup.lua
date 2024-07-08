@@ -482,9 +482,7 @@ mason_tag = "v1.10.0"
 
 mason_url = "https://github.com/williamboman/mason.nvim"
 
-mason_dependencies = {
-  "https://github.com/williamboman/mason-lspconfig.nvim",
-}
+mason_dependencies = nil
 
 mason_lazy = true
 
