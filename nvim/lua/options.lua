@@ -346,7 +346,7 @@ mason_nvim_dap_opts = function(plugin, opts)
     "codelldb",
     "debugpy",
   }
-  opts.automatic_installation = false
+  opts.automatic_installation = true
   opts.handlers = nil
 end
 
