@@ -31,6 +31,7 @@ vim_pencil_config = function(plugin, opts)
   vim_pencil_autocmds(plugin, opts)
   vim.g["pencil#textwidth"] = 79
   vim.g["pencil#cursorwrap"] = 1
+  vim.g["pencil#conceallevel"] = 0
   vim.g["pencil#autoformat"] = 0
   vim.g["pencil#joinspace"] = 0
 end
