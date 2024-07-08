@@ -60,7 +60,7 @@ end
 -- Autopairs
 
 nvim_autopairs_opts = function(plugin, opts)
-  opts.disable_filetype = { "TelescopePrompt", "spectre_panel" }
+  opts.disable_filetype = { "TelescopePrompt" }
   opts.ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=]
   opts.disable_in_macro = true
   opts.disable_in_visualblock = false
