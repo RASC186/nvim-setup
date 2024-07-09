@@ -438,17 +438,17 @@ local nvim_web_devicons = {
 
 --------------------------------------------------------------------------------
 
-local tokyonight = {
-  main = tokyonight_main,
-  tag = tokyonight_tag,
-  url = tokyonight_url,
-  dependencies = tokyonight_dependencies,
-  lazy = tokyonight_lazy,
-  cmd = tokyonight_cmd,
-  events = tokyonight_events,
-  priority = tokyonight_priority,
-  opts = tokyonight_opts,
-  config = tokyonight_config,
+local catppuccin = {
+  main = catppuccin_main,
+  tag = catppuccin_tag,
+  url = catppuccin_url,
+  dependencies = catppuccin_dependencies,
+  lazy = catppuccin_lazy,
+  cmd = catppuccin_cmd,
+  events = catppuccin_events,
+  priority = catppuccin_priority,
+  opts = catppuccin_opts,
+  config = catppuccin_config,
 }
 
 --------------------------------------------------------------------------------
@@ -522,7 +522,7 @@ local opts = {
   lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
 
   install = {
-    colorscheme = { "tokyonight" },
+    colorscheme = { "catppuccin" },
   },
 
   rtp = {
@@ -575,7 +575,7 @@ require("lazy").setup({
   lualine,
   nvim_tree,
   nvim_web_devicons,
-  tokyonight,
+  catppuccin,
   neodev,
   plenary,
 }, opts)

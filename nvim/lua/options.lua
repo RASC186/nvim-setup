@@ -546,9 +546,9 @@ end
 lualine_opts = function(plugin, opts)
   opts.options = {
     icons_enabled = true,
-    theme = "auto",
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    theme = "jellybeans",
+    component_separators = "|",
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -629,25 +629,60 @@ end
 
 --------------------------------------------------------------------------------
 
--- tokyonight
+-- catppuccin
 
-tokyonight_opts = function(plugin, opts)
-  opts.style = "night"
-  opts.light_style = "day"
-  opts.day_brightness = 0.3
-  opts.terminal_colors = true
-  opts.transparent = false
-  opts.lualine_bold = false
-  opts.dim_inactive = true
-  opts.hide_inactive_statusline = false
-  opts.sidebars = { "qf", "help" }
+catppuccin_opts = function(plugin, opts)
+  opts.flavour = "mocha"
+  opts.background = {
+    light = "latte",
+    dark = "mocha",
+  }
+  opts.transparent_background = false
+  opts.show_end_of_buffer = false
+  opts.term_colors = false
+  opts.dim_inactive = {
+    enabled = true,
+    shade = "dark",
+    percentage = 0.5,
+  }
+  opts.no_italic = false
+  opts.no_bold = false
+  opts.no_underline = false
   opts.styles = {
-    comments = { italic = true },
-    keywords = { italic = false },
-    functions = { italic = false },
-    variables = { italic = false },
-    sidebars = "dark",
-    floats = "dark",
+    comments = { "italic" },
+    conditionals = {},
+    loops = {},
+    functions = {},
+    keywords = {},
+    strings = {},
+    variables = {},
+    numbers = {},
+    booleans = {},
+    properties = {},
+    types = {},
+    operators = {},
+  }
+  opts.color_overrides = {
+    all = {
+      text = "#ffffff",
+    },
+    latte = {},
+    frappe = {},
+    macchiato = {},
+    mocha = {
+      base = "#262626",
+      mantle = "#1a1a1a",
+      surface0 = "#333333",
+      overlay0 = "#666666"
+    },
+  }
+  opts.custom_highlights = {}
+  opts.default_integrations = true
+  opts.integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
   }
 end
 

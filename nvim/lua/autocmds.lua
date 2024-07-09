@@ -179,9 +179,9 @@ nvim_web_devicons_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 
--- tokyonight
+-- catppuccin
 
-tokyonight_autocmds = function(plugin, opts) end
+catppuccin_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 

@@ -527,12 +527,12 @@ end
 
 --------------------------------------------------------------------------------
 
--- tokyonight
+-- catppuccin
 
-tokyonight_config = function(plugin, opts)
-  tokyonight_keymaps(plugin, opts)
+catppuccin_config = function(plugin, opts)
+  catppuccin_keymaps(plugin, opts)
   require(plugin.main).setup(opts)
-  vim.cmd([[colorscheme tokyonight]])
+  vim.cmd([[colorscheme catppuccin]])
 end
 
 --------------------------------------------------------------------------------

@@ -685,23 +685,23 @@ nvim_web_devicons_priority = 2
 
 --------------------------------------------------------------------------------
 
--- tokyonight
+-- catppuccin
 
-tokyonight_main = "tokyonight"
+catppuccin_main = "catppuccin"
 
-tokyonight_tag = "v4.1.1"
+catppuccin_tag = "v1.7.0"
 
-tokyonight_url = "https://github.com/folke/tokyonight.nvim"
+catppuccin_url = "https://github.com/catppuccin/nvim"
 
-tokyonight_dependencies = nil
+catppuccin_dependencies = nil
 
-tokyonight_lazy = false
+catppuccin_lazy = false
 
-tokyonight_cmd = nil
+catppuccin_cmd = nil
 
-tokyonight_events = nil
+catppuccin_events = nil
 
-tokyonight_priority = 3
+catppuccin_priority = 3
 
 --------------------------------------------------------------------------------
 
