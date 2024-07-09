@@ -599,7 +599,7 @@ nvim_tree_opts = function(plugin, opts)
     group_empty = true,
   }
   opts.filters = {
-    dotfiles = true,
+    dotfiles = false,
   }
 end
 
