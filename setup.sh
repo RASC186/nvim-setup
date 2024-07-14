@@ -1,17 +1,17 @@
 #!/bin/bash
 
-## Set the Ctrl-C trap
+# Set the Ctrl-C trap
 
 trap "echo -e \"\nTerminated by user\" ; trap - SIGINT ; exit" SIGINT
 
-## Update and upgrade packages
+# Update and upgrade packages
 
 echo -e "\n\033[32mUpdating and upgrading packages\033[0m\n"
 
 sudo apt update
 sudo apt upgrade -y
 
-## Install Neovim dependencies
+# Install Neovim dependencies
 
 echo -e "\n\033[32mInstalling Neovim dependencies\033[0m\n"
 
@@ -32,7 +32,7 @@ sudo apt install -y golang
 sudo apt install -y openjdk-17-jdk 
 sudo apt install -y latexmk texlive-full 
 
-## Install Neovim
+# Install Neovim
 
 echo -e "\n\033[32mInstalling Neovim\033[0m\n"
 
@@ -49,11 +49,11 @@ else
 
   sudo rm -f "/opt/nvim.tar.gz"
 
-  sudo ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
+  sudo ln -s "/opt/nvim-linux64/bin/nvim" "/usr/bin/nvim"
 
 fi
 
-##Copy Neovim settings to ~/.config directory
+# Copy Neovim settings to ~/.config directory
 
 echo -e "\n\033[32mCopying Neovin settings to ./config directory...\033[0m\n"
 
@@ -66,7 +66,11 @@ fi
 cp -R "./nvim" "${HOME}/.config/"
 
 if [[ $? = '0' ]] ; then
+
   echo -e "Files successfully copied!\n"
+
 else
+
   echo -e "\033[0;31mNeovim settings copy failed!\033[0m\n"
+
 fi
