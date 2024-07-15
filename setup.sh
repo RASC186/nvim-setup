@@ -63,9 +63,7 @@ if [ -d "${HOME}/.config/nvim/" ] ; then
 
 fi
 
-cp -R "./nvim" "${HOME}/.config/"
-
-if [[ $? = '0' ]] ; then
+if cp -R "./nvim" "${HOME}/.config/" ; then
 
   echo -e "Files successfully copied!\n"
 
