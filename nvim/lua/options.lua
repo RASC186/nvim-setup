@@ -18,7 +18,7 @@ opt.smartcase = true
 opt.hlsearch = false
 
 opt.number = true
-opt.relativenumber = false
+opt.relativenumber = true
 opt.termguicolors = true
 opt.colorcolumn = "80"
 opt.signcolumn = "yes"
