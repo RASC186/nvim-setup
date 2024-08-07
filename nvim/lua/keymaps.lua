@@ -8,6 +8,8 @@ vim.g.maplocalleader = " "
 
 vim.keymap.set("n", "<leader>q", ":q<CR>", { silent = true })
 vim.keymap.set("n", "<leader>Q", ":qa<CR>", { silent = true })
+vim.keymap.set("n", "<leader>s", ":w<CR>", { silent = true })
+vim.keymap.set("n", "<leader>S", ":wa<CR>", { silent = true })
 vim.keymap.set("n", "<leader><Right>", ":bnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader><Left>", ":bprevious<CR>", { silent = true })
 
