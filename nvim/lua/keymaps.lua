@@ -6,7 +6,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<leader>q", ":q<CR>", { silent = true })
+vim.keymap.set("n", "<leader>q", ":bd<CR>", { silent = true })
 vim.keymap.set("n", "<leader>Q", ":qa<CR>", { silent = true })
 vim.keymap.set("n", "<leader>s", ":w<CR>", { silent = true })
 vim.keymap.set("n", "<leader>S", ":wa<CR>", { silent = true })
