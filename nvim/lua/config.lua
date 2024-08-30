@@ -348,7 +348,6 @@ lspconfig_config = function(plugin, opts)
 
   local on_attach = function(_, bufnr)
     local options = { noremap = true, silent = false, buffer = bufnr }
-
     vim.keymap.set("n", "<A-a>", ":lua vim.lsp.buf.code_action()<CR>", options)
     vim.keymap.set("n", "<A-k>", ":lua vim.lsp.buf.hover()<CR>", options)
     vim.keymap.set("n", "<A-d>", ":lua vim.lsp.buf.definition()<CR>", options)
@@ -356,6 +355,7 @@ lspconfig_config = function(plugin, opts)
     vim.keymap.set("n", "<A-i>", ":lua vim.lsp.buf.implementation()<CR>", options)
     vim.keymap.set("n", "<A-r>", ":lua vim.lsp.buf.rename()<CR>", options)
     vim.keymap.set("n", "<A-CR>", vim.diagnostic.open_float, options)
+    vim.diagnostic.config({ virtual_text = false, underline = true })
   end
 
   local signs = { Error = "󰅙 ", Warn = " ", Hint = "󰠠 ", Info = "󰋗 " }
