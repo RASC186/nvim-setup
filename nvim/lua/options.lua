@@ -469,11 +469,11 @@ zen_mode_opts = function(plugin, opts)
     height = 25,
     options = {
       signcolumn = "no",
-      number = false,
-      relativenumber = false,
+      number = true,
+      relativenumber = true,
       cursorline = false,
       cursorcolumn = false,
-      foldcolumn = "5",
+      foldcolumn = "1",
       list = false,
     },
   }

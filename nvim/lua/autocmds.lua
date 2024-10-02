@@ -19,7 +19,7 @@ vim_pencil_autocmds = function(plugin, opts)
   local pencil_augroup = vim.api.nvim_create_augroup("pencil", { clear = true })
 
   vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "markdown", "bib" },
+    pattern = { "markdown", "tex", "bib" },
     group = pencil_augroup,
     callback = function()
       vim.cmd("SoftPencil")
@@ -27,7 +27,7 @@ vim_pencil_autocmds = function(plugin, opts)
   })
 
   vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "tex", "text" },
+    pattern = { "text" },
     group = pencil_augroup,
     callback = function()
       vim.cmd("HardPencil")
