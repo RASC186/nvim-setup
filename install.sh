@@ -26,7 +26,8 @@ sudo apt install -y ripgrep
 
 sudo apt install -y gdb make cmake  
 sudo apt install -y lua5.4 luarocks
-sudo apt install -y python3.11 python3.11-venv python3-pip
+sudo apt install -y python3 python3-pip python3-venv
+sudo apt install -y npm
 sudo apt install -y rustc cargo
 sudo apt install -y golang
 sudo apt install -y openjdk-17-jdk 
