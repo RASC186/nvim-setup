@@ -310,7 +310,6 @@ lspsaga_opts = nil
 
 mason_lspconfig_opts = function(plugin, opts)
   opts.ensure_installed = {
-    "asm_lsp",
     "bashls",
     "clangd",
     "neocmake",
