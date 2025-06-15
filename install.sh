@@ -31,7 +31,6 @@ sudo apt install -y npm
 sudo apt install -y rustc cargo
 sudo apt install -y golang
 sudo apt install -y openjdk-17-jdk 
-sudo apt install -y latexmk texlive-full 
 
 # Install Neovim
 

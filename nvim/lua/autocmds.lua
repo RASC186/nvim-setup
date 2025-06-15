@@ -19,7 +19,7 @@ vim_pencil_autocmds = function(plugin, opts)
   local pencil_augroup = vim.api.nvim_create_augroup("pencil", { clear = true })
 
   vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "markdown", "tex", "bib" },
+    pattern = { "markdown" },
     group = pencil_augroup,
     callback = function()
       vim.cmd("SoftPencil")
@@ -40,12 +40,6 @@ end
 -- luasnip
 
 luasnip_autocmds = function(plugin, opts) end
-
---------------------------------------------------------------------------------
-
--- vimtex
-
-vimtex_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 

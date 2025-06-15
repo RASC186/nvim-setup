@@ -61,37 +61,6 @@ end
 
 --------------------------------------------------------------------------------
 
--- cmp-vimtex
-
-cmp_vimtex_config = function(plugin, opts)
-  cmp_vimtex_keymaps(plugin, opts)
-  require(plugin.main).setup()
-end
-
---------------------------------------------------------------------------------
-
--- vimtex
-
-vimtex_config = function(plugin, opts)
-  vim.g.vimtex_view_method = "zathura_simple"
-  vim.g.vimtex_syntax_enabled = 0
-  vim.g.vimtex_quickfix_mode = 1
-  vim.g.vimtex_mappings_enabled = 1
-  vim.g.vimtex_indent_enabled = 1
-  vim.g.tex_flavor = "latex"
-  vim.g.tex_indent_items = 1
-  vim.g.tex_indent_brace = 1
-  vim.g.vimtex_context_pdf_viewer = "okular"
-  vim.g.rvimtex_log_ignore = {
-    "Underfull",
-    "Overfull",
-    "specifier changed to",
-    "Token not allowed in a PDF string",
-  }
-end
-
---------------------------------------------------------------------------------
-
 -- markdown-preview
 
 markdown_preview_config = function(plugin, opts)
@@ -187,32 +156,6 @@ dap_config = function(plugin, opts)
     },
   }
 
-  dap.adapters.python = function(cb, config)
-    if config.request == "attach" then
-      ---@diagnostic disable-next-line: undefined-field
-      local port = (config.connect or config).port
-      ---@diagnostic disable-next-line: undefined-field
-      local host = (config.connect or config).host or "127.0.0.1"
-      cb({
-        type = "server",
-        port = assert(port, "`connect.port` is required for a python `attach` configuration"),
-        host = host,
-        options = {
-          source_filetype = "python",
-        },
-      })
-    else
-      cb({
-        type = "executable",
-        command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python",
-        args = { "-m", "debugpy.adapter" },
-        options = {
-          source_filetype = "python",
-        },
-      })
-    end
-  end
-
   dap.configurations.sh = {
     {
       type = "bashdb",
@@ -249,25 +192,6 @@ dap_config = function(plugin, opts)
   }
 
   dap.configurations.cpp = dap.configurations.c
-
-  dap.configurations.python = {
-    {
-      type = "python",
-      request = "launch",
-      name = "Launch file",
-      program = "${file}",
-      pythonPath = function()
-        local cwd = vim.fn.getcwd()
-        if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
-          return cwd .. "/venv/bin/python"
-        elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
-          return cwd .. "/.venv/bin/python"
-        else
-          return "/usr/bin/python"
-        end
-      end,
-    },
-  }
 end
 
 --------------------------------------------------------------------------------
@@ -275,16 +199,6 @@ end
 -- lldebugger
 
 lldebugger_config = function(_, _) end
-
---------------------------------------------------------------------------------
-
--- dap-python
-
-dap_python_config = function(plugin, opts)
-  dap_python_keymaps(plugin, opts)
-  local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-  require(plugin.main).setup(path)
-end
 
 --------------------------------------------------------------------------------
 
@@ -318,18 +232,9 @@ nvim_lint_config = function(plugin, opts)
     bash = { "shellcheck" },
     cmake = { "cmakelang", "cmakelint" },
     cpp = { "cpplint" },
-    docker = { "hadolint" },
-    html = { "htmlhint" },
-    java = { "checkstyle" },
-    javascript = { "eslint_d" },
     make = { "checkmake" },
-    json = { "jsonlint" },
-    latex = { "vale" },
     lua = { "luacheck" },
     markdown = { "vale", "write-good", "misspell" },
-    python = { "flake8", "mypy", "pylint" },
-    sql = { "sqlfluff" },
-    systemverilog = { "verible" },
     yaml = { "yamllint" },
   }
 end
@@ -375,24 +280,6 @@ lspconfig_config = function(plugin, opts)
     on_attach = on_attach,
   })
 
-  lspconfig["dockerls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
-
-  lspconfig["docker_compose_language_service"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
-
-  lspconfig["ltex"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    root_dir = function()
-      return vim.fn.stdpath("data") .. "/mason/packages/ltex-ls/ltex-ls-16.0.0/bin"
-    end,
-  })
-
   lspconfig["lua_ls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
@@ -409,11 +296,6 @@ lspconfig_config = function(plugin, opts)
         },
       },
     },
-  })
-
-  lspconfig["pyright"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
   })
 end
 

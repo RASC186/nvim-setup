@@ -93,46 +93,6 @@ luasnip_priority = 2
 
 --------------------------------------------------------------------------------
 
--- cmp-vimtex
-
-cmp_vimtex_main = "cmp_vimtex"
-
-cmp_vimtex_tag = nil
-
-cmp_vimtex_url = "https://github.com/micangl/cmp-vimtex"
-
-cmp_vimtex_dependencies = nil
-
-cmp_vimtex_lazy = false
-
-cmp_vimtex_cmd = nil
-
-cmp_vimtex_events = nil
-
-cmp_vimtex_priority = 1
-
---------------------------------------------------------------------------------
-
--- vimtex
-
-vimtex_main = nil
-
-vimtex_tag = "v2.15"
-
-vimtex_url = "https://github.com/lervag/vimtex"
-
-vimtex_dependencies = nil
-
-vimtex_lazy = false
-
-vimtex_cmd = nil
-
-vimtex_events = nil
-
-vimtex_priority = 1
-
---------------------------------------------------------------------------------
-
 -- markdown-preview
 
 markdown_preview_main = nil
@@ -281,29 +241,6 @@ lldebugger_cmd = nil
 lldebugger_events = nil
 
 lldebugger_priority = 1
-
---------------------------------------------------------------------------------
-
--- dap-python
-
-dap_python_main = "dap-python"
-
-dap_python_tag = nil
-
-dap_python_url = "https://github.com/mfussenegger/nvim-dap-python"
-
-dap_python_dependencies = {
-  "https://github.com/rcarriga/nvim-dap-ui",
-  "https://github.com/mfussenegger/nvim-dap",
-}
-
-dap_python_lazy = false
-
-dap_python_cmd = nil
-
-dap_python_events = nil
-
-dap_python_priority = 1
 
 --------------------------------------------------------------------------------
 
