@@ -175,12 +175,6 @@ lldebugger_keymaps = function(_, _) end
 
 --------------------------------------------------------------------------------
 
--- dap-python
-
-dap_python_keymaps = function(_, _) end
-
---------------------------------------------------------------------------------
-
 -- conform
 
 conform_keymaps = function(plugin, opts)
