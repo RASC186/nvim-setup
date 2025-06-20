@@ -320,8 +320,6 @@ nvim_treesitter_opts = function(plugin, opts)
     "lua",
     "make",
     "markdown",
-    "vim",
-    "vimdoc",
     "yaml",
   }
   opts.sync_install = true
