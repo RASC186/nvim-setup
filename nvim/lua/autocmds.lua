@@ -43,12 +43,6 @@ luasnip_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 
--- vimtex
-
-vimtex_autocmds = function(plugin, opts) end
-
---------------------------------------------------------------------------------
-
 -- markdown-preview
 
 markdown_preview_autocmds = function(plugin, opts) end

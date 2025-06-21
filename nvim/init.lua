@@ -64,36 +64,6 @@ local luasnip = {
 
 --------------------------------------------------------------------------------
 
-local cmp_vimtex = {
-  main = cmp_vimtex_main,
-  tag = cmp_vimtex_tag,
-  url = cmp_vimtex_url,
-  dependencies = cmp_vimtex_dependencies,
-  lazy = cmp_vimtex_lazy,
-  cmd = cmp_vimtex_cmd,
-  events = cmp_vimtex_events,
-  priority = cmp_vimtex_priority,
-  opts = cmp_vimtex_opts,
-  config = cmp_vimtex_config,
-}
-
---------------------------------------------------------------------------------
-
-local vimtex = {
-  main = vimtex_main,
-  tag = vimtex_tag,
-  url = vimtex_url,
-  dependencies = vimtex_dependencies,
-  lazy = vimtex_lazy,
-  cmd = vimtex_cmd,
-  events = vimtex_events,
-  priority = vimtex_priority,
-  opts = vimtex_opts,
-  config = vimtex_config,
-}
-
---------------------------------------------------------------------------------
-
 local markdown_preview = {
   main = markdown_preview_main,
   tag = markdown_preview_tag,
@@ -550,8 +520,6 @@ require("lazy").setup({
   nvim_autopairs,
   vim_pencil,
   luasnip,
-  cmp_vimtex,
-  vimtex,
   markdown_preview,
   nvim_cmp,
   nvim_dap_virtual_text,

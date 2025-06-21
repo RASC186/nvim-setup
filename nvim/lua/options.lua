@@ -92,41 +92,6 @@ luasnip_opts = nil
 
 --------------------------------------------------------------------------------
 
--- cmp-vimtex
-
-cmp_vimtex_opts = function(plugin, opts)
-  opts.additional_information = {
-    info_in_menu = true,
-    info_in_window = true,
-    info_max_length = 60,
-    match_against_info = true,
-    symbols_in_menu = true,
-  }
-  opts.bibtex_parser = {
-    enabled = true,
-  }
-  opts.search = {
-    browser = "xdg-open",
-    default = "google_scholar",
-    search_engines = {
-      google_scholar = {
-        name = "Google Scholar",
-        get_url = require("cmp_vimtex").url_default_format(
-          "https://scholar.google.com/scholar?hl=en&q=%s"
-        ),
-      },
-    },
-  }
-end
-
---------------------------------------------------------------------------------
-
--- vimtex
-
-vimtex_opts = nil
-
---------------------------------------------------------------------------------
-
 -- markdown-preview
 
 markdown_preview_opts = nil
@@ -170,7 +135,6 @@ nvim_cmp_opts = function(plugin, opts)
   opts.sources = cmp.config.sources({
     { name = "nvim_lsp", keyword_length = 3, max_item_count = 3 },
     { name = "luasnip",  keyword_length = 2, max_item_count = 3 },
-    { name = "vimtex",   keyword_length = 2, max_item_count = 3 },
     { name = "buffer",   keyword_length = 5, max_item_count = 3 },
     { name = "path",     keyword_length = 1, max_item_count = 3 },
   })
@@ -249,21 +213,15 @@ dap_python_opts = nil
 
 conform_opts = function(plugin, opts)
   opts.formatters_by_ft = {
-    assembly = { "asmfmt" },
     bash = { "beautysh" },
-    bib = { "bibtex-tidy" },
-    c = { "clang-format" },
-    cmake = { "cmakelang" },
-    cpp = { "clang-format" },
     java = { "google-java-format" },
     javascript = { "prettier" },
+    html = { "prettier" },
+    css = { "prettier" },
     json = { "fixjson" },
-    tex = { "latexindent" },
-    lua = { "stylua" },
     markdown = { "mdformat" },
     python = { "black" },
     sql = { "sqlfmt" },
-    systemverilog = { "verible" },
     yaml = { "yamlfmt" },
   }
   opts.format_on_save = {
@@ -271,13 +229,7 @@ conform_opts = function(plugin, opts)
     async = false,
     timeout_ms = 500,
   }
-  opts.formatters = {
-    latexindent = {
-      command = "latexindent",
-      prepend_args = { "-" },
-      stdin = true,
-    },
-  }
+  opts.formatters = {}
 end
 
 --------------------------------------------------------------------------------
@@ -311,8 +263,6 @@ lspsaga_opts = nil
 mason_lspconfig_opts = function(plugin, opts)
   opts.ensure_installed = {
     "bashls",
-    "clangd",
-    "neocmake",
     "cssls",
     "diagnosticls",
     "html",
@@ -322,16 +272,9 @@ mason_lspconfig_opts = function(plugin, opts)
     "dockerls",
     "docker_compose_language_service",
     "efm",
-    "ltex",
-    "lua_ls",
-    "autotools_ls",
-    "matlab_ls",
     "pyright",
-    "rust_analyzer",
     "sqlls",
-    "hydra_lsp",
     "wgsl_analyzer",
-    "verible",
   }
   opts.automatic_installation = true
   opts.handlers = nil
@@ -344,7 +287,6 @@ end
 mason_nvim_dap_opts = function(plugin, opts)
   opts.ensure_installed = {
     "bash-debug-adapter",
-    "codelldb",
     "debugpy",
   }
   opts.automatic_installation = true
@@ -388,29 +330,18 @@ end
 nvim_treesitter_opts = function(plugin, opts)
   opts.ensure_installed = {
     "bash",
-    "c",
-    "cmake",
-    "cpp",
     "css",
     "dockerfile",
     "html",
     "java",
     "javascript",
     "jsonc",
-    "latex",
-    "lua",
-    "make",
     "markdown",
     "python",
     "query",
-    "rust",
     "sql",
-    "verilog",
-    "vim",
-    "vimdoc",
     "wgsl",
     "yaml",
-    "yang",
   }
   opts.sync_install = true
   opts.auto_install = false
