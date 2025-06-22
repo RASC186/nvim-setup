@@ -147,52 +147,6 @@ end
 
 --------------------------------------------------------------------------------
 
--- nvim-dap-virtual-text
-
-nvim_dap_virtual_text_keymaps = function(_, _) end
-
---------------------------------------------------------------------------------
-
--- dapui
-
-dapui_keymaps = function(plugin, _)
-  local dapui = require(plugin.main)
-  vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset=true})<CR><ESC>", {})
-  vim.api.nvim_set_keymap("n", "<leader>dt", ":lua require('dapui').toggle({reset=true})<CR><ESC>", {})
-  vim.api.nvim_set_keymap("n", "<leader>dq", ":lua require('dapui').close()<CR><ESC>", {})
-end
-
---------------------------------------------------------------------------------
-
--- dap
-
-dap_keymaps = function(plugin, _)
-  local dap = require(plugin.main)
-  vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
-  vim.keymap.set("n", "<leader>dc", dap.continue)
-  vim.keymap.set("n", "<leader>dn", dap.step_over)
-  vim.keymap.set("n", "<leader>di", dap.step_into)
-  vim.keymap.set("n", "<leader>dp", dap.step_back)
-  vim.keymap.set("n", "<leader>dd", function()
-    dap.disconnect()
-    dap.close()
-  end, {})
-end
-
---------------------------------------------------------------------------------
-
--- lldebugger
-
-lldebugger_keymaps = function(_, _) end
-
---------------------------------------------------------------------------------
-
--- dap-python
-
-dap_python_keymaps = function(_, _) end
-
---------------------------------------------------------------------------------
-
 -- conform
 
 conform_keymaps = function(plugin, opts)
@@ -243,11 +197,6 @@ lspsaga_keymaps = function(_, _) end
 -- mason-lspconfig
 
 mason_lspconfig_keymaps = function(_, _) end
---------------------------------------------------------------------------------
-
--- mason-nvim-dap
-
-mason_nvim_dap_keymaps = function(_, _) end
 
 --------------------------------------------------------------------------------
 

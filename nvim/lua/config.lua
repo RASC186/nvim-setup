@@ -141,153 +141,6 @@ end
 
 --------------------------------------------------------------------------------
 
--- nvim-dap-virtual-text
-
-nvim_dap_virtual_text_config = function(plugin, opts)
-  nvim_dap_virtual_text_keymaps(plugin, opts)
-  local nvim_dap_virtual_text = require(plugin.main)
-  nvim_dap_virtual_text.setup(opts)
-end
-
---------------------------------------------------------------------------------
-
--- dapui
-
-dapui_config = function(plugin, opts)
-  dapui_keymaps(plugin, opts)
-  local dapui = require(plugin.main)
-  local dap = require("dap")
-  dapui.setup(opts)
-  dap.listeners.after.event_initialized["dapui_config"] = function()
-    require("dapui").open()
-  end
-end
-
---------------------------------------------------------------------------------
-
--- dap
-
-dap_config = function(plugin, opts)
-  dap_keymaps(plugin, opts)
-
-  local dap = require(plugin.main)
-
-  dap.adapters.bashdb = {
-    type = "executable",
-    command = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/bash-debug-adapter",
-    name = "bashdb",
-  }
-
-  dap.adapters.codelldb = {
-    type = "server",
-    port = "${port}",
-    executable = {
-      command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
-      args = { "--port", "${port}" },
-    },
-  }
-
-  dap.adapters.python = function(cb, config)
-    if config.request == "attach" then
-      ---@diagnostic disable-next-line: undefined-field
-      local port = (config.connect or config).port
-      ---@diagnostic disable-next-line: undefined-field
-      local host = (config.connect or config).host or "127.0.0.1"
-      cb({
-        type = "server",
-        port = assert(port, "`connect.port` is required for a python `attach` configuration"),
-        host = host,
-        options = {
-          source_filetype = "python",
-        },
-      })
-    else
-      cb({
-        type = "executable",
-        command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python",
-        args = { "-m", "debugpy.adapter" },
-        options = {
-          source_filetype = "python",
-        },
-      })
-    end
-  end
-
-  dap.configurations.sh = {
-    {
-      type = "bashdb",
-      request = "launch",
-      name = "Launch file",
-      showDebugOutput = true,
-      pathBashdb = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir/bashdb",
-      pathBashdbLib = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir",
-      trace = true,
-      file = "${file}",
-      program = "${file}",
-      cwd = "${workspaceFolder}",
-      pathCat = "cat",
-      pathBash = "/bin/bash",
-      pathMkfifo = "mkfifo",
-      pathPkill = "pkill",
-      args = {},
-      env = {},
-      terminalKind = "integrated",
-    },
-  }
-
-  dap.configurations.c = {
-    {
-      name = "Launch file",
-      type = "codelldb",
-      request = "launch",
-      program = function()
-        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-      end,
-      cwd = "${workspaceFolder}",
-      stopOnEntry = false,
-    },
-  }
-
-  dap.configurations.cpp = dap.configurations.c
-
-  dap.configurations.python = {
-    {
-      type = "python",
-      request = "launch",
-      name = "Launch file",
-      program = "${file}",
-      pythonPath = function()
-        local cwd = vim.fn.getcwd()
-        if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
-          return cwd .. "/venv/bin/python"
-        elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
-          return cwd .. "/.venv/bin/python"
-        else
-          return "/usr/bin/python"
-        end
-      end,
-    },
-  }
-end
-
---------------------------------------------------------------------------------
-
--- lldebugger
-
-lldebugger_config = function(_, _) end
-
---------------------------------------------------------------------------------
-
--- dap-python
-
-dap_python_config = function(plugin, opts)
-  dap_python_keymaps(plugin, opts)
-  local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-  require(plugin.main).setup(path)
-end
-
---------------------------------------------------------------------------------
-
 -- conform
 
 conform_config = function(plugin, opts)
@@ -315,22 +168,8 @@ nvim_lint_config = function(plugin, opts)
   nvim_lint_autocmds(plugin, opts)
   local lint = require(plugin.main)
   lint.linters_by_ft = {
-    bash = { "shellcheck" },
-    cmake = { "cmakelang", "cmakelint" },
-    cpp = { "cpplint" },
-    docker = { "hadolint" },
-    html = { "htmlhint" },
-    java = { "checkstyle" },
-    javascript = { "eslint_d" },
-    make = { "checkmake" },
-    json = { "jsonlint" },
     latex = { "vale" },
-    lua = { "luacheck" },
     markdown = { "vale", "write-good", "misspell" },
-    python = { "flake8", "mypy", "pylint" },
-    sql = { "sqlfluff" },
-    systemverilog = { "verible" },
-    yaml = { "yamllint" },
   }
 end
 
@@ -365,55 +204,12 @@ lspconfig_config = function(plugin, opts)
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
 
-  lspconfig["bashls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
-
-  lspconfig["clangd"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
-
-  lspconfig["dockerls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
-
-  lspconfig["docker_compose_language_service"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
-
   lspconfig["ltex"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
     root_dir = function()
       return vim.fn.stdpath("data") .. "/mason/packages/ltex-ls/ltex-ls-16.0.0/bin"
     end,
-  })
-
-  lspconfig["lua_ls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-      },
-      workspace = {
-        libary = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.stdpath("config") .. "../lua"] = true,
-        },
-      },
-    },
-  })
-
-  lspconfig["pyright"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
   })
 end
 
@@ -431,15 +227,6 @@ end
 
 mason_lspconfig_config = function(plugin, opts)
   mason_lspconfig_keymaps(plugin, opts)
-  require(plugin.main).setup(opts)
-end
-
---------------------------------------------------------------------------------
-
--- mason-nvim-dap
-
-mason_nvim_dap_config = function(plugin, opts)
-  mason_nvim_dap_keymaps(plugin, opts)
   require(plugin.main).setup(opts)
 end
 

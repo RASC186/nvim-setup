@@ -124,81 +124,6 @@ local nvim_cmp = {
 
 --------------------------------------------------------------------------------
 
-local nvim_dap_virtual_text = {
-  main = nvim_dap_virtual_text_main,
-  tag = nvim_dap_virtual_text_tag,
-  url = nvim_dap_virtual_text_url,
-  dependencies = nvim_dap_virtual_text_dependencies,
-  lazy = nvim_dap_virtual_text_lazy,
-  cmd = nvim_dap_virtual_text_cmd,
-  events = nvim_dap_virtual_text_events,
-  priority = nvim_dap_virtual_text_priority,
-  opts = nvim_dap_virtual_text_opts,
-  config = nvim_dap_virtual_text_config,
-}
-
---------------------------------------------------------------------------------
-
-local dapui = {
-  main = dapui_main,
-  tag = dapui_tag,
-  url = dapui_url,
-  dependencies = dapui_dependencies,
-  lazy = dapui_lazy,
-  cmd = dapui_cmd,
-  events = dapui_events,
-  priority = dapui_priority,
-  opts = dapui_opts,
-  config = dapui_config,
-}
-
---------------------------------------------------------------------------------
-
-local dap = {
-  main = dap_main,
-  tag = dap_tag,
-  url = dap_url,
-  dependencies = dap_dependencies,
-  lazy = dap_lazy,
-  cmd = dap_cmd,
-  events = dap_events,
-  priority = dap_priority,
-  opts = dap_opts,
-  config = dap_config,
-}
-
---------------------------------------------------------------------------------
-
-local lldebugger = {
-  main = lldebugger_main,
-  tag = lldebugger_tag,
-  url = lldebugger_url,
-  dependencies = lldebugger_dependencies,
-  lazy = lldebugger_lazy,
-  cmd = lldebugger_cmd,
-  events = lldebugger_events,
-  priority = lldebugger_priority,
-  opts = lldebugger_opts,
-  config = lldebugger_config,
-}
-
---------------------------------------------------------------------------------
-
-local dap_python = {
-  main = dap_python_main,
-  tag = dap_python_tag,
-  url = dap_python_url,
-  dependencies = dap_python_dependencies,
-  lazy = dap_python_lazy,
-  cmd = dap_python_cmd,
-  events = dap_python_events,
-  priority = dap_python_priority,
-  opts = dap_python_opts,
-  config = dap_python_config,
-}
-
---------------------------------------------------------------------------------
-
 local conform = {
   main = conform_main,
   tag = conform_tag,
@@ -284,21 +209,6 @@ local mason_lspconfig = {
   priority = mason_lspconfig_priority,
   opts = mason_lspconfig_opts,
   config = mason_lspconfig_config,
-}
-
---------------------------------------------------------------------------------
-
-local mason_nvim_dap = {
-  main = mason_nvim_dap_main,
-  tag = mason_nvim_dap_tag,
-  url = mason_nvim_dap_url,
-  dependencies = mason_nvim_dap_dependencies,
-  lazy = mason_nvim_dap_lazy,
-  cmd = mason_nvim_dap_cmd,
-  events = mason_nvim_dap_events,
-  priority = mason_nvim_dap_priority,
-  opts = mason_nvim_dap_opts,
-  config = mason_nvim_dap_config,
 }
 
 --------------------------------------------------------------------------------
@@ -554,18 +464,12 @@ require("lazy").setup({
   vimtex,
   markdown_preview,
   nvim_cmp,
-  nvim_dap_virtual_text,
-  dapui,
-  dap,
-  lldebugger,
-  dap_python,
   conform,
   gitsigns,
   nvim_lint,
   lspconfig,
   lspsaga,
   mason_lspconfig,
-  mason_nvim_dap,
   mason,
   nvim_treesitter,
   illuminate,

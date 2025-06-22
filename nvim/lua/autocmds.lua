@@ -61,24 +61,6 @@ nvim_cmp_autocmds = function(plugin, opts) end
 
 --------------------------------------------------------------------------------
 
--- nvim-dap-virtual-text
-
-nvim_dap_virtual_text_autocmds = function(plugin, opts) end
-
---------------------------------------------------------------------------------
-
--- dapui
-
-dapui_autocmds = function(plugin, opts) end
-
---------------------------------------------------------------------------------
-
--- dap
-
-dap_autocmds = function(plugin, opts) end
-
---------------------------------------------------------------------------------
-
 -- conform
 
 conform_autocmds = function(plugin, opts) end

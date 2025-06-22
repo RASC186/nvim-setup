@@ -178,93 +178,12 @@ end
 
 --------------------------------------------------------------------------------
 
--- nvim-dap-virtual-text
-
-nvim_dap_virtual_text_opts = function(plugin, opts)
-  opts.enabled = true
-  opts.enabled_commands = true
-  opts.highlight_changed_variables = true
-  opts.show_stop_reason = true
-  opts.commented = false
-  opts.only_first_definition = true
-  opts.all_references = false
-  opts.clear_on_continue = false
-  opts.display_callback = function(variable, buf, stackframe, node, options)
-    if options.virt_text_pos == "inline" then
-      return " = " .. variable.value
-    else
-      return variable.name .. " = " .. variable.value
-    end
-  end
-  opts.virt_text_pos = vim.fn.has("nvim-0.10") == 1 and "inline" or "eol"
-  opts.all_frames = false
-  opts.virt_lines = false
-  opts.virt_text_win_col = nil
-end
-
---------------------------------------------------------------------------------
-
--- dapui
-
-dapui_opts = function(plugin, opts)
-  opts.sidebars = {
-    elements = {
-      "scopes",
-      "scopes",
-      "watches",
-    },
-    width = 40,
-    position = "left",
-  }
-  opts.tray = {
-    elements = {
-      "repl",
-    },
-    height = 10,
-    position = "bottom",
-  }
-end
-
---------------------------------------------------------------------------------
-
--- dap
-
-dap_opts = nil
-
---------------------------------------------------------------------------------
-
--- lldebugger
-
-lldebugger_opts = nil
-
---------------------------------------------------------------------------------
-
--- dap-python
-
-dap_python_opts = nil
-
---------------------------------------------------------------------------------
-
 -- conform
 
 conform_opts = function(plugin, opts)
   opts.formatters_by_ft = {
-    assembly = { "asmfmt" },
-    bash = { "beautysh" },
-    bib = { "bibtex-tidy" },
-    c = { "clang-format" },
-    cmake = { "cmakelang" },
-    cpp = { "clang-format" },
-    java = { "google-java-format" },
-    javascript = { "prettier" },
-    json = { "fixjson" },
     tex = { "latexindent" },
-    lua = { "stylua" },
     markdown = { "mdformat" },
-    python = { "black" },
-    sql = { "sqlfmt" },
-    systemverilog = { "verible" },
-    yaml = { "yamlfmt" },
   }
   opts.format_on_save = {
     lsp_fallback = true,
@@ -310,42 +229,8 @@ lspsaga_opts = nil
 
 mason_lspconfig_opts = function(plugin, opts)
   opts.ensure_installed = {
-    "bashls",
-    "clangd",
-    "neocmake",
-    "cssls",
-    "diagnosticls",
-    "html",
-    "htmx",
-    "jsonls",
-    "tsserver",
-    "dockerls",
-    "docker_compose_language_service",
-    "efm",
     "ltex",
-    "lua_ls",
-    "autotools_ls",
     "matlab_ls",
-    "pyright",
-    "rust_analyzer",
-    "sqlls",
-    "hydra_lsp",
-    "wgsl_analyzer",
-    "verible",
-  }
-  opts.automatic_installation = true
-  opts.handlers = nil
-end
-
---------------------------------------------------------------------------------
-
--- mason-nvim-dap
-
-mason_nvim_dap_opts = function(plugin, opts)
-  opts.ensure_installed = {
-    "bash-debug-adapter",
-    "codelldb",
-    "debugpy",
   }
   opts.automatic_installation = true
   opts.handlers = nil
@@ -387,30 +272,9 @@ end
 
 nvim_treesitter_opts = function(plugin, opts)
   opts.ensure_installed = {
-    "bash",
-    "c",
-    "cmake",
-    "cpp",
-    "css",
-    "dockerfile",
-    "html",
-    "java",
-    "javascript",
-    "jsonc",
     "latex",
-    "lua",
-    "make",
     "markdown",
-    "python",
-    "query",
-    "rust",
-    "sql",
-    "verilog",
-    "vim",
-    "vimdoc",
-    "wgsl",
-    "yaml",
-    "yang",
+    "matlab",
   }
   opts.sync_install = true
   opts.auto_install = false
@@ -711,7 +575,7 @@ end
 -- neodev
 
 neodev_opts = function(plugin, opts)
-  opts.library = { plugins = { "nvim-dap-ui" }, types = true }
+  opts.library = { plugins = {}, types = true }
 end
 
 --------------------------------------------------------------------------------
