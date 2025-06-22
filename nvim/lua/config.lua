@@ -233,7 +233,6 @@ nvim_lint_config = function(plugin, opts)
     cmake = { "cmakelang", "cmakelint" },
     cpp = { "cpplint" },
     make = { "checkmake" },
-    lua = { "luacheck" },
     markdown = { "vale", "write-good", "misspell" },
     yaml = { "yamllint" },
   }
@@ -280,23 +279,6 @@ lspconfig_config = function(plugin, opts)
     on_attach = on_attach,
   })
 
-  lspconfig["lua_ls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-      },
-      workspace = {
-        libary = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.stdpath("config") .. "../lua"] = true,
-        },
-      },
-    },
-  })
 end
 
 --------------------------------------------------------------------------------

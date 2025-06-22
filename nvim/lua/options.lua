@@ -211,7 +211,6 @@ conform_opts = function(plugin, opts)
     c = { "clang-format" },
     cmake = { "cmakelang" },
     cpp = { "clang-format" },
-    lua = { "stylua" },
     markdown = { "mdformat" },
     yaml = { "yamlfmt" },
   }
@@ -258,7 +257,6 @@ mason_lspconfig_opts = function(plugin, opts)
     "clangd",
     "neocmake",
     "efm",
-    "lua_ls",
   }
   opts.automatic_installation = true
   opts.handlers = nil
@@ -317,11 +315,8 @@ nvim_treesitter_opts = function(plugin, opts)
     "c",
     "cmake",
     "cpp",
-    "lua",
     "make",
     "markdown",
-    "vim",
-    "vimdoc",
     "yaml",
   }
   opts.sync_install = true
