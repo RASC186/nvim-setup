@@ -266,7 +266,7 @@ mason_lspconfig_opts = function(plugin, opts)
     "cssls",
     "diagnosticls",
     "html",
-    "htmx",
+    -- "htmx",
     "jsonls",
     "tsserver",
     "dockerls",
