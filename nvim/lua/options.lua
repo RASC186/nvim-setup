@@ -332,7 +332,7 @@ nvim_treesitter_opts = function(plugin, opts)
     "bash",
     "css",
     "dockerfile",
-    "html",
+    -- "html",
     "java",
     "javascript",
     "jsonc",
