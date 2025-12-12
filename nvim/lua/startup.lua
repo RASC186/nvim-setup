@@ -161,7 +161,7 @@ markdown_preview_priority = 1
 
 nvim_cmp_main = "cmp"
 
-nvim_cmp_tag = nil
+nvim_cmp_tag = "v0.0.2"
 
 nvim_cmp_url = "https://github.com/hrsh7th/nvim-cmp"
 
